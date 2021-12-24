@@ -21,7 +21,7 @@ export const Footer = (): React.ReactElement => {
         <div className="footer__menu">
           {menu.map((item) => (
             <span
-              className={`menu__item${item.active ? '--active' : ''}`}
+              className={`footer__menu__item${item.active ? '--active' : ''}`}
               key={item.route}
               onClick={() => goToPage(item.route)}
             >
