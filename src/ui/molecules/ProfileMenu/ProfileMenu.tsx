@@ -17,13 +17,19 @@ export const ProfileMenu = (): React.ReactElement => {
     <div className="profile">
       <div className="profile__menu">
         {menu.map((item) => (
-          <span
-            className={`profile__menu__item${item.active ? '--active' : ''}`}
+          <div
+            className="profile__menu__container"
             key={item.route}
             onClick={() => goToPage(item.route)}
           >
-            {item.label}
-          </span>
+            <span
+              className={`profile__menu__container__item${
+                item.active ? '--active' : ''
+              }`}
+            >
+              {item.label}
+            </span>
+          </div>
         ))}
       </div>
     </div>

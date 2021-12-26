@@ -40,7 +40,7 @@
   text-align: center;
 
   &__item {
-    @include SFProRegular;
+    @include SFProBold;
     color: $blackPrimary;
     font-size: rem(16px);
     margin-right: 40px;
@@ -51,12 +51,12 @@
     }
 
     &--active {
-      @include SFProRegular;
+      @include SFProBold;
       color: $primaryBlue;
       font-size: rem(16px);
       margin-right: 40px;
       margin-left: 40px;
-      border-bottom: 1px solid $primaryBlue;
+      border-bottom: 3px solid $primaryBlue;
     }
   }
 }
