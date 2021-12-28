@@ -10,6 +10,11 @@
   align-items: center;
   padding: 60px 0px 60px 0px;
 
+  @media only screen and (max-width: 1036px) {
+    flex-direction: column;
+    height: 280px;
+  }
+
   &__title {
     font-size: rem(20px);
     @include SFProBold;
@@ -37,7 +42,12 @@
   top: 63.5px;
   right: 0;
   z-index: 2;
+  flex-direction: row;
   text-align: center;
+
+  @media only screen and (max-width: 1036px) {
+    top: 120px;
+  }
 
   &__item {
     @include SFProBold;
@@ -45,6 +55,16 @@
     font-size: rem(16px);
     margin-right: 40px;
     margin-left: 40px;
+
+    @media only screen and (max-width: 660px) {
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+
+    @media only screen and (max-width: 436px) {
+      margin-left: 10px;
+      margin-right: 10px;
+    }
 
     &:hover {
       cursor: pointer;
