@@ -15,7 +15,7 @@ export const useMenu = (): Menu[] => {
   const menu = [
     { label: 'Info', route: '/info', active: isRouteActive('/info') },
     {
-      label: 'Profile',
+      label: 'Profil',
       route: '/change-email',
       active: isRouteActive('/change-email'),
     },
