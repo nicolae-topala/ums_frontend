@@ -1,12 +1,17 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { useStudentMenu } from 'hooks/useStudentMenu';
+import { Menu as typeMenu } from 'hooks/menu.types';
 
-import './StudentMenu.scss';
+import './Menu.scss';
 
-export const StudentMenu = (): React.ReactElement => {
-  const menu = useStudentMenu();
+interface Props {
+  menu: typeMenu[];
+}
+
+export const Menu: React.FC<Props> = ({ menu }): React.ReactElement => {
+  const menus = menu;
+
   const navigate = useNavigate();
 
   const goToPage = (route: string): void => {
@@ -14,16 +19,16 @@ export const StudentMenu = (): React.ReactElement => {
   };
 
   return (
-    <div className="student">
-      <div className="student__menu">
-        {menu.map((item) => (
+    <div className="page">
+      <div className="page__menu">
+        {menus.map((item) => (
           <div
-            className="student__menu__container"
+            className="page__menu__container"
             key={item.route}
             onClick={() => goToPage(item.route)}
           >
             <span
-              className={`student__menu__container__item${
+              className={`page__menu__container__item${
                 item.active ? '--active' : ''
               }`}
             >

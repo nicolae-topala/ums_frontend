@@ -1,9 +1,9 @@
 @import '../../../styles/helpers.scss', '../../../styles/palette.scss',
   '../../../styles/typography.scss';
 
-.profile {
+.page {
   width: 100%;
-  background-color: $profileMenu;
+  background-color: $pageMenu;
   display: flex;
   border-radius: 3px;
   flex-direction: column;

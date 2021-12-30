@@ -1,16 +1,22 @@
 import React from 'react';
 
+//ui
 import { Layout } from 'ui/organisms/Layout/Layout';
-import { StudentMenu } from 'ui/molecules/StudentMenu/StudentMenu';
+import { Menu } from 'ui/molecules/Menu/Menu';
+
+//hooks
+import { useStudentMenu } from 'hooks/useStudentMenu';
 
 import './StudentDataPage.scss';
 
 export const StudentDataPage = (): React.ReactElement => {
+  const menu = useStudentMenu();
+
   return (
     <Layout>
       <div className="student-data-page">
         <div className="student-data-page__menu">
-          <StudentMenu />
+          <Menu menu={menu} />
         </div>
         <div className="student-data">
           <div className="student-data__title">Date student</div>

@@ -1,5 +1,5 @@
 import { Menu } from './menu.types';
-import { isRouteActive } from './routeActive.types';
+import { isRouteActive } from './menu.types';
 
 export const useStudentMenu = (): Menu[] => {
   const menu = [

@@ -2,20 +2,23 @@ import React, { useState } from 'react';
 
 //UI
 import { Layout } from 'ui/organisms/Layout/Layout';
-import { ProfileMenu } from 'ui/molecules/ProfileMenu/ProfileMenu';
+import { Menu } from 'ui/molecules/Menu/Menu';
 import { Input } from 'ui/atoms/Input/Input';
 import { Button } from 'ui/atoms/Button/Button';
+
+import { useProfileMenu } from 'hooks/useProfileMenu';
 
 import './ChangeEmailPage.scss';
 
 export const ChangeEmailPage = (): React.ReactElement => {
   const [email, setEmail] = useState('');
+  const menu = useProfileMenu();
 
   return (
     <Layout>
       <div className="change-email-page">
         <div className="change-email-page__menu">
-          <ProfileMenu />
+          <Menu menu={menu} />
         </div>
         <div className="change-email">
           <div className="change-email__title">Schimbă adresa de email</div>

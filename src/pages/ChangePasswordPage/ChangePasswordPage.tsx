@@ -3,8 +3,11 @@ import React, { useState } from 'react';
 //UI
 import { Button } from 'ui/atoms/Button/Button';
 import { Input } from 'ui/atoms/Input/Input';
-import { ProfileMenu } from 'ui/molecules/ProfileMenu/ProfileMenu';
+import { Menu } from 'ui/molecules/Menu/Menu';
 import { Layout } from 'ui/organisms/Layout/Layout';
+
+//Hooks
+import { useProfileMenu } from 'hooks/useProfileMenu';
 
 import './ChangePasswordPage.scss';
 
@@ -13,11 +16,13 @@ export const ChangePasswordPage = (): React.ReactElement => {
   const [newPassword, setNewPassword] = useState('');
   const [repeatNewPassword, setRepeatNewPassword] = useState('');
 
+  const menu = useProfileMenu();
+
   return (
     <Layout>
       <div className="change-password-page">
         <div className="change-password-page__menu">
-          <ProfileMenu />
+          <Menu menu={menu} />
         </div>
         <div className="change-password">
           <div className="change-password__title">Schimbă Parola</div>
