@@ -1,5 +1,4 @@
-import { Menu } from './menu.types';
-import { isRouteActive } from './menu.types';
+import { Menu, isRouteActive } from './menu.types';
 
 export const useProfileMenu = (): Menu[] => {
   const menu = [
