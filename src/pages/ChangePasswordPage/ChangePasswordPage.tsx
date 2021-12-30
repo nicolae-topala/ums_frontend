@@ -23,42 +23,44 @@ export const ChangePasswordPage = (): React.ReactElement => {
           <div className="change-password__title">Schimbă Parola</div>
           <div className="change-password__description">
             <table>
-              <tr>
-                <td>
-                  <span>Parolă veche:</span>
-                </td>
-                <td>
-                  <Input
-                    type="password"
-                    className="change-password__input"
-                    onChange={setOldPassword}
-                  />
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <span>Parolă nouă (max. 12 caractere):</span>
-                </td>
-                <td>
-                  <Input
-                    type="password"
-                    className="change-password__input"
-                    onChange={setNewPassword}
-                  />
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <span>Confirmare parolă nouă (max. 12 caractere):</span>
-                </td>
-                <td>
-                  <Input
-                    type="password"
-                    className="change-password__input"
-                    onChange={setRepeatNewPassword}
-                  />
-                </td>
-              </tr>
+              <tbody>
+                <tr>
+                  <td>
+                    <span>Parolă veche:</span>
+                  </td>
+                  <td>
+                    <Input
+                      type="password"
+                      className="change-password__input"
+                      onChange={setOldPassword}
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span>Parolă nouă (max. 12 caractere):</span>
+                  </td>
+                  <td>
+                    <Input
+                      type="password"
+                      className="change-password__input"
+                      onChange={setNewPassword}
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span>Confirmare parolă nouă (max. 12 caractere):</span>
+                  </td>
+                  <td>
+                    <Input
+                      type="password"
+                      className="change-password__input"
+                      onChange={setRepeatNewPassword}
+                    />
+                  </td>
+                </tr>
+              </tbody>
             </table>
             <Button className="change-password__button" text="Confirmă" />
           </div>

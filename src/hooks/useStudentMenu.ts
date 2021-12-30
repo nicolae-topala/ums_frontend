@@ -11,18 +11,12 @@ const isRouteActive = (route: string) => {
   return isActive;
 };
 
-export const useMenu = (): Menu[] => {
+export const useStudentMenu = (): Menu[] => {
   const menu = [
-    { label: 'Info', route: '/info', active: isRouteActive('/info') },
     {
-      label: 'Date Student',
+      label: 'Date generale',
       route: '/student-data',
       active: isRouteActive('/student-data'),
-    },
-    {
-      label: 'Profil',
-      route: '/change-email',
-      active: isRouteActive('/change-email'),
     },
   ];
 

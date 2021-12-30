@@ -1,0 +1,61 @@
+@import '../../../styles/helpers.scss', '../../../styles/palette.scss',
+  '../../../styles/typography.scss';
+
+.student {
+  width: 100%;
+  background-color: $profileMenu;
+  display: flex;
+  border-radius: 3px;
+  flex-direction: column;
+  align-items: center;
+
+  &__menu {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    align-items: center;
+    margin-top: 40px;
+    margin-bottom: 35px;
+
+    &__container {
+      width: 90%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      margin-bottom: 5px;
+      overflow: hidden;
+
+      &:hover {
+        cursor: pointer;
+        border-radius: 6px;
+        background-color: white;
+      }
+
+      &:active {
+        cursor: pointer;
+        border-radius: 6px;
+        background-color: white;
+      }
+
+      &__item {
+        @include SFProRegular;
+        display: block;
+        color: $blackPrimary;
+        font-size: rem(16px);
+        margin: 10px;
+
+        &--active {
+          @include SFProRegular;
+          display: block;
+          color: $primaryBlue;
+          font-size: rem(16px);
+          margin: 10px;
+        }
+      }
+    }
+  }
+}
