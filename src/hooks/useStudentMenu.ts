@@ -12,6 +12,11 @@ export const useStudentMenu = (): Menu[] => {
       route: '/student-education',
       active: isRouteActive('/student-education'),
     },
+    {
+      label: 'Date părinţi',
+      route: '/student-parents-details',
+      active: isRouteActive('/student-parents-details'),
+    },
   ];
 
   return menu;
