@@ -17,6 +17,11 @@ export const useStudentMenu = (): Menu[] => {
       route: '/student-parents-details',
       active: isRouteActive('/student-parents-details'),
     },
+    {
+      label: 'Contact',
+      route: '/student-contact',
+      active: isRouteActive('/student-contact'),
+    },
   ];
 
   return menu;

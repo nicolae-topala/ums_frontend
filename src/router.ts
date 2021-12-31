@@ -5,6 +5,7 @@ import { ChangePasswordPage } from 'pages/ChangePasswordPage/ChangePasswordPage'
 import { StudentDataPage } from 'pages/StudentDataPage/StudentDataPage';
 import { StudentEducationPage } from 'pages/StudentEducationPage/StudentEducationPage';
 import { StudentParentsDetailsPage } from 'pages/StudentParentsDetailsPage/StudentParentsDetailsPage';
+import { StudentContactPage } from 'pages/StudentContactPage/StudentContactPage';
 
 export const routes = {
   allRoutes: [
@@ -15,6 +16,7 @@ export const routes = {
     { path: '/student-data', element: StudentDataPage },
     { path: '/student-education', element: StudentEducationPage },
     { path: '/student-parents-details', element: StudentParentsDetailsPage },
+    { path: '/student-contact', element: StudentContactPage },
   ],
   defaultRoute: {
     path: '/info',
