@@ -3,6 +3,7 @@ import { InfoPage } from 'pages/InfoPage/InfoPage';
 import { ChangeEmailPage } from 'pages/ChangeEmailPage/ChangeEmailPage';
 import { ChangePasswordPage } from 'pages/ChangePasswordPage/ChangePasswordPage';
 import { StudentDataPage } from 'pages/StudentDataPage/StudentDataPage';
+import { StudentEducationPage } from 'pages/StudentEducationPage/StudentEducationPage';
 
 export const routes = {
   allRoutes: [
@@ -11,6 +12,7 @@ export const routes = {
     { path: '/change-email', element: ChangeEmailPage },
     { path: '/change-password', element: ChangePasswordPage },
     { path: '/student-data', element: StudentDataPage },
+    { path: '/student-education', element: StudentEducationPage },
   ],
   defaultRoute: {
     path: '/info',

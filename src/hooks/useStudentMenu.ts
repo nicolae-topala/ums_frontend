@@ -7,6 +7,11 @@ export const useStudentMenu = (): Menu[] => {
       route: '/student-data',
       active: isRouteActive('/student-data'),
     },
+    {
+      label: 'Şcolaritate',
+      route: '/student-education',
+      active: isRouteActive('/student-education'),
+    },
   ];
 
   return menu;
