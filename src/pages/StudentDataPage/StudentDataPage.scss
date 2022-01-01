@@ -26,32 +26,9 @@
       margin-left: 0px;
     }
 
-    table {
-      margin-top: 20px;
-
-      caption {
-        @include SFProBold;
-        font-size: rem(16px);
-        text-align: left;
-        margin-bottom: 5px;
-      }
-    }
-
     &__title {
       @include SFProBold;
       font-size: rem(20px);
-    }
-
-    &__name {
-      @include SFProBold;
-      font-size: rem(14px);
-      margin-bottom: 10px;
-    }
-
-    &__value {
-      @include SFProRegular;
-      font-size: rem(14px);
-      margin-bottom: 10px;
     }
 
     &__description {

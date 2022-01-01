@@ -3,6 +3,7 @@ import React from 'react';
 //ui
 import { Layout } from 'ui/organisms/Layout/Layout';
 import { Menu } from 'ui/molecules/Menu/Menu';
+import { Table } from 'ui/atoms/Table/Table';
 
 //hooks
 import { useStudentMenu } from 'hooks/useStudentMenu';
@@ -21,32 +22,8 @@ export const StudentParentsDetailsPage = (): React.ReactElement => {
         <div className="student-parents">
           <div className="student-parents__title">Date părinţi</div>
           <div className="student-parents__description">
-            <table>
-              <caption>Date tată</caption>
-              <tbody>
-                <tr>
-                  <td>
-                    <span className="student-parents__name">GET name</span>
-                  </td>
-                  <td>
-                    <span className="student-parents__value">GET value</span>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            <table>
-              <caption>Date mamă</caption>
-              <tbody>
-                <tr>
-                  <td>
-                    <span className="student-parents__name">GET name</span>
-                  </td>
-                  <td>
-                    <span className="student-parents__value">GET value</span>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+            <Table caption="Date tată" />
+            <Table caption="Date mamă" />
           </div>
         </div>
       </div>

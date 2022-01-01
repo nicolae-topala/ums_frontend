@@ -3,6 +3,7 @@ import React from 'react';
 //ui
 import { Layout } from 'ui/organisms/Layout/Layout';
 import { Menu } from 'ui/molecules/Menu/Menu';
+import { Table } from 'ui/atoms/Table/Table';
 
 //hooks
 import { useStudentMenu } from 'hooks/useStudentMenu';
@@ -21,19 +22,7 @@ export const StudentContactPage = (): React.ReactElement => {
         <div className="student-contact">
           <div className="student-contact__title">Contact</div>
           <div className="student-contact__description">
-            <table>
-              <caption>Domiciliul stabil</caption>
-              <tbody>
-                <tr>
-                  <td>
-                    <span className="student-contact__name">GET name</span>
-                  </td>
-                  <td>
-                    <span className="student-contact__value">GET value</span>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+            <Table caption="Domiciliul stabil" />
           </div>
         </div>
       </div>

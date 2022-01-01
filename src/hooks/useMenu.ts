@@ -8,6 +8,10 @@ export const useMenu = (): Menu[] => {
       route: '/student-data',
     },
     {
+      label: 'Situația școlară',
+      route: '/curriculum',
+    },
+    {
       label: 'Profil',
       route: '/change-email',
     },
