@@ -1,4 +1,5 @@
 import React from 'react';
+import Select from 'react-select';
 
 //ui
 import { Layout } from 'ui/organisms/Layout/Layout';
@@ -13,6 +14,11 @@ import './CurriculumPage.scss';
 export const CurriculumPage = (): React.ReactElement => {
   const menu = useGradesMenu();
 
+  const options = [
+    { value: '1', label: '1' },
+    { value: '2', label: '2' },
+  ];
+
   return (
     <Layout>
       <div className="curriculum-page">
@@ -23,7 +29,14 @@ export const CurriculumPage = (): React.ReactElement => {
           <div className="curriculum__title">Discipline</div>
           <div className="curriculum__description">
             <span>Facultatea de Ştiinţe Exacte şi Inginereşti</span>
-            <span>An universitar </span>
+            <div className="curriculum__container">
+              <span>An universitar</span>
+              <Select
+                className="curriculum__container__input"
+                options={options}
+                isSearchable={false}
+              />
+            </div>
             <Table />
           </div>
         </div>

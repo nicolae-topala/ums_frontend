@@ -6,6 +6,7 @@ import { StudentDataPage } from 'pages/StudentDataPage/StudentDataPage';
 import { StudentEducationPage } from 'pages/StudentEducationPage/StudentEducationPage';
 import { StudentParentsDetailsPage } from 'pages/StudentParentsDetailsPage/StudentParentsDetailsPage';
 import { StudentContactPage } from 'pages/StudentContactPage/StudentContactPage';
+import { CurriculumPage } from 'pages/CurriculumPage/CurriculumPage';
 
 export const routes = {
   allRoutes: [
@@ -17,6 +18,8 @@ export const routes = {
     { path: '/student-education', element: StudentEducationPage },
     { path: '/student-parents-details', element: StudentParentsDetailsPage },
     { path: '/student-contact', element: StudentContactPage },
+    { path: '/student-parents-details', element: StudentParentsDetailsPage },
+    { path: '/curriculum', element: CurriculumPage },
   ],
   defaultRoute: {
     path: '/info',
