@@ -7,6 +7,11 @@ export const useGradesMenu = (): Menu[] => {
       route: '/curriculum',
       active: isRouteActive('/curriculum'),
     },
+    {
+      label: 'Note',
+      route: '/view-grades',
+      active: isRouteActive('/view-grades'),
+    },
   ];
 
   return menu;
