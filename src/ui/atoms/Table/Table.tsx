@@ -31,26 +31,18 @@ export const Table: React.FC<Props> = ({
               <caption>{caption}</caption>
               <thead>
                 <tr>
-                  <th>GET name</th>
-                  <th>GET name</th>
+                  <th className="name">GET name</th>
+                  <th className="name">GET name</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>
-                    <span className="value">GET value</span>
-                  </td>
-                  <td>
-                    <span className="value">GET value</span>
-                  </td>
+                  <td className="value">GET value</td>
+                  <td className="value">GET value</td>
                 </tr>
                 <tr>
-                  <td>
-                    <span className="value">GET value</span>
-                  </td>
-                  <td>
-                    <span className="value">GET value</span>
-                  </td>
+                  <td className="value">GET value</td>
+                  <td className="value">GET value</td>
                 </tr>
               </tbody>
             </table>
@@ -63,12 +55,8 @@ export const Table: React.FC<Props> = ({
             <caption>{caption}</caption>
             <tbody>
               <tr>
-                <td>
-                  <span className="name">GET name</span>
-                </td>
-                <td>
-                  <span className="value">GET value</span>
-                </td>
+                <td className="name">GET name</td>
+                <td className="value">GET value</td>
               </tr>
             </tbody>
           </table>
