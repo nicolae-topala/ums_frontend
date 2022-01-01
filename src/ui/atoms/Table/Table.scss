@@ -1,4 +1,5 @@
-@import '../../../styles/helpers.scss', '../../../styles/typography.scss';
+@import '../../../styles/helpers.scss', '../../../styles/palette.scss',
+  '../../../styles/typography.scss';
 
 table {
   margin-top: 20px;
@@ -21,4 +22,56 @@ table {
   @include SFProRegular;
   font-size: rem(14px);
   margin-bottom: 10px;
+}
+
+.table-large {
+  table {
+    border-spacing: 1;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 6px;
+    overflow: hidden;
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+
+    * {
+      position: relative;
+    }
+
+    td,
+    th {
+      padding-left: 8px;
+    }
+
+    thead tr {
+      height: 60px;
+      background: $tableHeader;
+      font-size: 16px;
+    }
+
+    tbody tr {
+      height: 48px;
+      border-bottom: 1px solid $tableBorderSeparator;
+
+      &:last-child {
+        border: 0;
+      }
+    }
+
+    td,
+    th {
+      text-align: left;
+      &.l {
+        text-align: right;
+      }
+      &.c {
+        text-align: center;
+      }
+      &.r {
+        text-align: center;
+      }
+    }
+  }
 }
