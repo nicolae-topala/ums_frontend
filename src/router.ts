@@ -11,6 +11,7 @@ import { GradesPage } from 'pages/GradesPage/GradesPage';
 import { ElectivesPage } from 'pages/ElectivesPage/ElectivesPage';
 import { FinancialPage } from 'pages/FinancialPage/FinancialPage';
 import { PaymentsPage } from 'pages/PaymentsPage/PaymentsPage';
+import { DiscountsPage } from 'pages/DiscountsPage/DiscountsPage';
 
 export const routes = {
   allRoutes: [
@@ -29,6 +30,7 @@ export const routes = {
     { path: '/financial', element: FinancialPage },
     { path: '/electives', element: ElectivesPage },
     { path: '/payments', element: PaymentsPage },
+    { path: '/discounts', element: DiscountsPage },
   ],
   defaultRoute: {
     path: '/info',

@@ -12,6 +12,11 @@ export const useFinancialMenu = (): Menu[] => {
       route: '/payments',
       active: isRouteActive('/payments'),
     },
+    {
+      label: 'Reduceri',
+      route: '/discounts',
+      active: isRouteActive('/discounts'),
+    },
   ];
 
   return menu;
