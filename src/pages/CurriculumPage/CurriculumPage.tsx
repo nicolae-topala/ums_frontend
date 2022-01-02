@@ -37,7 +37,7 @@ export const CurriculumPage = (): React.ReactElement => {
                 isSearchable={false}
               />
             </div>
-            <Table />
+            <Table large />
           </div>
         </div>
       </div>
