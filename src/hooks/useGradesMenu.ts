@@ -12,6 +12,11 @@ export const useGradesMenu = (): Menu[] => {
       route: '/view-grades',
       active: isRouteActive('/view-grades'),
     },
+    {
+      label: 'Opţionale',
+      route: '/electives',
+      active: isRouteActive('/electives'),
+    },
   ];
 
   return menu;
