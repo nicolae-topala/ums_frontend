@@ -7,6 +7,11 @@ export const useFinancialMenu = (): Menu[] => {
       route: '/financial',
       active: isRouteActive('/financial'),
     },
+    {
+      label: 'Documente plată',
+      route: '/payments',
+      active: isRouteActive('/payments'),
+    },
   ];
 
   return menu;
