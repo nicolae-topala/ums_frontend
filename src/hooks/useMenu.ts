@@ -12,6 +12,10 @@ export const useMenu = (): Menu[] => {
       route: '/curriculum',
     },
     {
+      label: 'Financiar',
+      route: '/financial',
+    },
+    {
       label: 'Profil',
       route: '/change-email',
     },
