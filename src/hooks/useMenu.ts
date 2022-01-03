@@ -4,16 +4,20 @@ export const useMenu = (): Menu[] => {
   const menu = [
     { label: 'Info', route: '/info' },
     {
-      label: 'Date Student',
+      label: 'Student',
       route: '/student-data',
     },
     {
-      label: 'Situația școlară',
+      label: 'Note',
       route: '/curriculum',
     },
     {
       label: 'Financiar',
       route: '/financial',
+    },
+    {
+      label: 'Cazări',
+      route: '/accommodation',
     },
     {
       label: 'Profil',

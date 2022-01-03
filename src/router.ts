@@ -12,6 +12,7 @@ import { ElectivesPage } from 'pages/ElectivesPage/ElectivesPage';
 import { FinancialPage } from 'pages/FinancialPage/FinancialPage';
 import { PaymentsPage } from 'pages/PaymentsPage/PaymentsPage';
 import { DiscountsPage } from 'pages/DiscountsPage/DiscountsPage';
+import { AccommodationPage } from 'pages/AccommodationPage/AccommodationPage';
 
 export const routes = {
   allRoutes: [
@@ -31,6 +32,7 @@ export const routes = {
     { path: '/electives', element: ElectivesPage },
     { path: '/payments', element: PaymentsPage },
     { path: '/discounts', element: DiscountsPage },
+    { path: '/accommodation', element: AccommodationPage },
   ],
   defaultRoute: {
     path: '/info',
