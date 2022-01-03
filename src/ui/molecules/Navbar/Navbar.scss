@@ -46,7 +46,13 @@
   text-align: center;
 
   @media only screen and (max-width: 1036px) {
+    display: block;
     top: 120px;
+  }
+
+  @media only screen and (max-width: 755px) {
+    display: block;
+    top: 90px;
   }
 
   &__item {
@@ -56,14 +62,18 @@
     margin-right: 40px;
     margin-left: 40px;
 
-    @media only screen and (max-width: 660px) {
-      margin-left: 20px;
+    @media only screen and (max-width: 755px) {
+      display: inline-block;
       margin-right: 20px;
+      margin-left: 20px;
+      margin-top: 20px;
     }
 
     @media only screen and (max-width: 436px) {
-      margin-left: 10px;
+      display: inline-block;
+      margin-top: 20px;
       margin-right: 10px;
+      margin-left: 10px;
     }
 
     &:hover {
