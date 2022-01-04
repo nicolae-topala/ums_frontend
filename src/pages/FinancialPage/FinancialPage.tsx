@@ -28,14 +28,14 @@ export const FinancialPage = (): React.ReactElement => {
           <div className="financial__title">Info financiar</div>
           <div className="financial__description">
             <div className="financial__container">
-              <span>An universitar</span>
+              <p>An universitar</p>
               <Select
                 className="financial__container__input"
                 options={options}
                 isSearchable={false}
               />
             </div>
-            <span>Sold ani anteriori 0</span>
+            <p>Sold ani anteriori 0</p>
           </div>
         </div>
       </div>

@@ -28,9 +28,9 @@ export const CurriculumPage = (): React.ReactElement => {
         <div className="curriculum">
           <div className="curriculum__title">Discipline</div>
           <div className="curriculum__description">
-            <span>Facultatea de Ştiinţe Exacte şi Inginereşti</span>
+            <p>Facultatea de Ştiinţe Exacte şi Inginereşti</p>
             <div className="curriculum__container">
-              <span>An universitar</span>
+              <p>An universitar</p>
               <Select
                 className="curriculum__container__input"
                 options={options}

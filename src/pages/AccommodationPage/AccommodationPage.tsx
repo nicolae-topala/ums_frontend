@@ -25,7 +25,7 @@ export const AccommodationPage = (): React.ReactElement => {
           <div className="accommodation__title">Vizualizare opţiuni</div>
           <div className="accommodation__description">
             <div className="accommodation__container">
-              <span>An universitar</span>
+              <p>An universitar</p>
               <Select
                 className="accommodation__container__input"
                 options={options}
@@ -33,7 +33,7 @@ export const AccommodationPage = (): React.ReactElement => {
               />
             </div>
             <div className="accommodation__container">
-              <span>Sesiune</span>
+              <p>Sesiune</p>
               <Select
                 className="accommodation__container__input"
                 options={options2}

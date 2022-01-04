@@ -2,6 +2,7 @@
   '../../styles/typography.scss';
 
 .change-email-page {
+  max-width: 850px;
   display: flex;
   width: 100%;
   flex-direction: row;
@@ -41,10 +42,9 @@
       justify-content: space-between;
       margin-top: 10px;
 
-      span {
+      p {
         @include SFProRegular;
         font-size: rem(16px);
-        margin-bottom: 10px;
       }
     }
 

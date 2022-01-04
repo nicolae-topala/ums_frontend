@@ -23,16 +23,16 @@ export const ChangeEmailPage = (): React.ReactElement => {
         <div className="change-email">
           <div className="change-email__title">Schimbă adresa de email</div>
           <div className="change-email__description">
-            <span>
+            <p>
               Pe aceasta pagină puteţi să vă schimbaţi adresa de email din
               contul UMS Web. Veţi putea utiliza noua adresă de email în cazul
               în care doriţi să vă resetaţi parola în aplicaţia UMS Web.
-            </span>
-            <span>Adresa de email curentă: {email}</span>
-            <span>
+            </p>
+            <p>Adresa de email curentă: {email}</p>
+            <p>
               Introduceţi adresa nouă de email:{' '}
               <Input onChange={setEmail} className="change-email__input" />
-            </span>
+            </p>
             <Button text="Schimbă" className="change-email__button" />
           </div>
         </div>

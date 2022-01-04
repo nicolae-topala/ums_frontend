@@ -29,7 +29,7 @@ export const ElectivesPage = (): React.ReactElement => {
           <div className="electives__title">Discipline opţionale</div>
           <div className="electives__description">
             <div className="electives__container">
-              <span>An universitar</span>
+              <p>An universitar</p>
               <Select
                 className="electives__container__input"
                 options={options}

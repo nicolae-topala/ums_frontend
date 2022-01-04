@@ -29,7 +29,7 @@ export const DiscountsPage = (): React.ReactElement => {
           <div className="discounts__title">Reduceri</div>
           <div className="discounts__description">
             <div className="discounts__container">
-              <span>An universitar</span>
+              <p>An universitar</p>
               <Select
                 className="discounts__container__input"
                 options={options}

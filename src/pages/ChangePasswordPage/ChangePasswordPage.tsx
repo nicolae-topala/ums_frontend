@@ -31,7 +31,7 @@ export const ChangePasswordPage = (): React.ReactElement => {
               <tbody>
                 <tr>
                   <td>
-                    <span>Parolă veche:</span>
+                    <p>Parolă veche:</p>
                   </td>
                   <td>
                     <Input
@@ -43,7 +43,7 @@ export const ChangePasswordPage = (): React.ReactElement => {
                 </tr>
                 <tr>
                   <td>
-                    <span>Parolă nouă (max. 12 caractere):</span>
+                    <p>Parolă nouă (max. 12 caractere):</p>
                   </td>
                   <td>
                     <Input
@@ -55,7 +55,7 @@ export const ChangePasswordPage = (): React.ReactElement => {
                 </tr>
                 <tr>
                   <td>
-                    <span>Confirmare parolă nouă (max. 12 caractere):</span>
+                    <p>Confirmare parolă nouă (max. 12 caractere):</p>
                   </td>
                   <td>
                     <Input

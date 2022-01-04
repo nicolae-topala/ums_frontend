@@ -29,7 +29,7 @@ export const PaymentsPage = (): React.ReactElement => {
           <div className="payments__title">Documente plată</div>
           <div className="payments__description">
             <div className="payments__container">
-              <span>An universitar</span>
+              <p>An universitar</p>
               <Select
                 className="payments__container__input"
                 options={options}

@@ -34,7 +34,7 @@ export const GradesPage = (): React.ReactElement => {
           <div className="grades__title">Note</div>
           <div className="grades__description">
             <div className="grades__container">
-              <span>An universitar</span>
+              <p>An universitar</p>
               <Select
                 className="grades__container__input"
                 options={options}
@@ -42,7 +42,7 @@ export const GradesPage = (): React.ReactElement => {
               />
             </div>
             <div className="grades__container">
-              <span>Tip</span>
+              <p>Tip</p>
               <Select
                 className="grades__container__input"
                 options={options2}
