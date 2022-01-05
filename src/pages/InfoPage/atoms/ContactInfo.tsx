@@ -1,5 +1,4 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 
 import { Icon } from 'resources/icons/icons';
 
@@ -10,11 +9,9 @@ interface Props {
   photo: string;
   url: string;
   alt?: string;
-  address?: string;
-  phone?: string;
-  phone2?: string;
-  email?: string;
-  email2?: string;
+  address?: string[];
+  phone?: string[];
+  email?: string[];
 }
 
 export const ContactInfo: React.FC<Props> = ({
@@ -24,101 +21,61 @@ export const ContactInfo: React.FC<Props> = ({
   alt = 'Photo',
   address,
   phone,
-  phone2,
   email,
-  email2,
 }): React.ReactElement => {
-  const navigate = useNavigate();
-
-  const goToPage = (route: string): void => {
-    navigate(route);
-  };
   return (
     <div className="element">
-      <img
-        className="element__image"
-        src={photo}
-        alt={alt}
-        onClick={() => goToPage(url)}
-      />
+      <a href={url}>
+        <img className="element__image" src={photo} alt={alt} />
+      </a>
       <p className="element__title">{title}</p>
       <table className="element__contacts">
         <tbody>
-          {address ? (
-            <tr className="element__contacts__info">
-              <td>
-                <span className="icon">
-                  <Icon type="address" />
-                </span>
-                <span>Adresa</span>
-              </td>
-              <td>
-                <p>{address}</p>
-              </td>
-            </tr>
-          ) : (
-            ''
-          )}
-          {phone ? (
-            <tr className="element__contacts__info">
-              <td>
-                <span className="icon">
-                  <Icon type="phone" />
-                </span>
-                <span>Telefon</span>
-              </td>
-              <td>
-                <p>{phone}</p>
-              </td>
-            </tr>
-          ) : (
-            ''
-          )}
-          {phone2 ? (
-            <tr className="element__contacts__info">
-              <td>
-                <span className="icon">
-                  <Icon type="phone" />
-                </span>
-                <span>Telefon</span>
-              </td>
-              <td>
-                <p>{phone2}</p>
-              </td>
-            </tr>
-          ) : (
-            ''
-          )}
-          {email ? (
-            <tr className="element__contacts__info">
-              <td>
-                <span className="icon">
-                  <Icon type="email" />
-                </span>
-                <span>Email</span>
-              </td>
-              <td>
-                <p>{email}</p>
-              </td>
-            </tr>
-          ) : (
-            ''
-          )}
-          {email2 ? (
-            <tr className="element__contacts__info">
-              <td>
-                <span className="icon">
-                  <Icon type="email" />
-                </span>
-                <span>Email</span>
-              </td>
-              <td>
-                <p>{email2}</p>
-              </td>
-            </tr>
-          ) : (
-            ''
-          )}
+          {address
+            ? address.map((item) => (
+                <tr key={item} className="element__contacts__info">
+                  <td className="element__contacts__info__details">
+                    <span className="icon">
+                      <Icon type="address" />
+                    </span>
+                    <span>Adresa</span>
+                  </td>
+                  <td>
+                    <p>{item}</p>
+                  </td>
+                </tr>
+              ))
+            : ''}
+          {phone
+            ? phone.map((item) => (
+                <tr key={item} className="element__contacts__info">
+                  <td className="element__contacts__info__details">
+                    <span className="icon">
+                      <Icon type="phone" />
+                    </span>
+                    <span>Telefon</span>
+                  </td>
+                  <td>
+                    <p>{item}</p>
+                  </td>
+                </tr>
+              ))
+            : ''}
+          {email
+            ? email.map((item) => (
+                <tr key={item} className="element__contacts__info">
+                  <td className="element__contacts__info__details">
+                    <span className="icon">
+                      <Icon type="email" />
+                    </span>
+                    <span>Email</span>
+                  </td>
+                  <td>
+                    <p>{item}</p>
+                  </td>
+                </tr>
+              ))
+            : ''}
         </tbody>
       </table>
     </div>
