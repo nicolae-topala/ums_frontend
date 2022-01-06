@@ -71,6 +71,22 @@ export const InfoPage = (): React.ReactElement => {
             />
           </div>
         </div>
+        <div className="info-page__container">
+          <div className="info-page__container__title">
+            <h2>Contacte</h2>
+          </div>
+          <div className="info-page__container__description">
+            <ContactInfo
+              className="contact"
+              height="150px"
+              top="35px"
+              title="Rectorat Universitate"
+              address={['Gabriel Bethlen Nr.5']}
+              phone={['+40258806130']}
+              email={['cond@uab.ro']}
+            />
+          </div>
+        </div>
       </div>
     </Layout>
   );
