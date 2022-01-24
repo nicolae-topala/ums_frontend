@@ -19,7 +19,7 @@ export const Button: React.FC<Props> = ({
   return (
     <button className={`button ${className}`} onClick={onClick}>
       {loading && <LoaderSpinner />}
-      <p>{text}</p>
+      {text}
     </button>
   );
 };

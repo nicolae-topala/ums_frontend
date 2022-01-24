@@ -17,14 +17,9 @@
   color: white;
   border: none;
   @include SFProRegular;
-  font-size: rem(18px);
+  font-size: rem(16px);
 
   &:hover {
     cursor: pointer;
-  }
-
-  p {
-    color: white;
-    border: none;
   }
 }

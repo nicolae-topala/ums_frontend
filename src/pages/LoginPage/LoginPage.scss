@@ -1,0 +1,103 @@
+@import '../../styles/typography.scss', '../../styles/palette.scss',
+  '../../styles/helpers.scss';
+
+.login {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  @media only screen and (max-width: 720px) {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  &__items {
+    margin: auto;
+    width: 400px;
+    flex-direction: column;
+    text-align: center;
+
+    @media only screen and (max-width: 720px) {
+      width: 100%;
+    }
+
+    &__title {
+      @include SFProBold;
+      color: $blackPrimary;
+      font-size: rem(40px);
+      margin-bottom: 50px;
+    }
+
+    &__input {
+      margin-bottom: 10px;
+    }
+
+    &__button {
+      margin-bottom: 5px;
+
+      &__forgot {
+        margin-bottom: 5px;
+        background-color: white;
+        color: black;
+        border: 1px solid;
+        border-color: $primaryBlue;
+      }
+
+      &__firstLogIn {
+        color: $primaryBlue;
+        text-decoration: underline;
+        background-color: white;
+      }
+    }
+  }
+
+  &__details {
+    margin: auto;
+    margin-left: 30px;
+    width: 700px;
+    color: $textPrimary;
+
+    @media only screen and (max-width: 720px) {
+      width: 100%;
+      margin-left: 0px;
+    }
+
+    &__paragraph {
+      margin-bottom: 20px;
+
+      a {
+        color: $primaryBlue;
+        text-decoration: underline;
+      }
+
+      p {
+        @include SFProRegular;
+        font-size: rem(16px);
+        margin-bottom: 5px;
+      }
+
+      span {
+        @include SFProBold;
+        font-size: rem(16px);
+      }
+      table {
+        margin-top: 0;
+
+        td:first-child {
+          padding-left: 0px;
+        }
+        td,
+        th {
+          padding-left: 50px;
+        }
+        th {
+          text-align: left;
+        }
+      }
+    }
+  }
+}
