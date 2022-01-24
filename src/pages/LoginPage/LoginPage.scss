@@ -42,13 +42,13 @@
       &__forgot {
         margin-bottom: 5px;
         background-color: white;
-        color: black;
+        color: $secondaryBlue;
         border: 1px solid;
-        border-color: $primaryBlue;
+        border-color: $secondaryBlue;
       }
 
       &__firstLogIn {
-        color: $primaryBlue;
+        color: $secondaryBlue;
         text-decoration: underline;
         background-color: white;
       }
