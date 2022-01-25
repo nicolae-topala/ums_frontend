@@ -1,7 +1,7 @@
 @import '../../styles/typography.scss', '../../styles/palette.scss',
   '../../styles/helpers.scss';
 
-.login {
+.reset {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -29,99 +29,59 @@
       @include SFProBold;
       color: $blackPrimary;
       font-size: rem(40px);
-      margin-bottom: 50px;
+      margin-bottom: 10px;
     }
 
-    &__row {
-      display: flex;
-      width: 100%;
-      margin-bottom: 10px;
+    &__description {
+      margin-bottom: 25px;
 
-      @media only screen and (max-width: 720px) {
-        margin-bottom: 15px;
+      p {
+        @include SFProRegular;
+        color: $blackPrimary;
+        font-size: rem(16px);
+        text-align: center;
       }
     }
 
     &__input {
-      margin: auto;
-      width: 90%;
-
-      @media only screen and (max-width: 720px) {
-        width: 85%;
-      }
-    }
-
-    &__icon {
-      margin: auto;
-      width: 6%;
-
-      @media only screen and (max-width: 720px) {
-        width: 9%;
-      }
-
-      &:hover {
-        cursor: pointer;
-      }
-    }
-
-    &__button {
+      width: 100%;
       margin-bottom: 5px;
 
       @media only screen and (max-width: 720px) {
         margin-bottom: 15px;
       }
+    }
+
+    &__row {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 100%;
+
+      @media only screen and (max-width: 720px) {
+        flex-direction: column;
+      }
+    }
+
+    &__button {
+      width: 45%;
+      margin-bottom: 5px;
+
+      @media only screen and (max-width: 720px) {
+        margin-bottom: 15px;
+        width: 100%;
+      }
 
       &__forgot {
+        width: 45%;
         margin-bottom: 5px;
         background-color: white;
         color: $secondaryBlue;
         border: 1px solid;
         border-color: $secondaryBlue;
-      }
-    }
-  }
 
-  &__details {
-    margin: auto;
-    margin-left: 30px;
-    width: 700px;
-    color: $textPrimary;
-
-    @media only screen and (max-width: 720px) {
-      width: 100%;
-      margin-left: 0px;
-    }
-
-    &__paragraph {
-      margin-bottom: 20px;
-
-      a {
-        color: $primaryBlue;
-        text-decoration: underline;
-      }
-
-      p {
-        @include SFProRegular;
-        font-size: rem(16px);
-        margin-bottom: 5px;
-      }
-
-      span {
-        @include SFProBold;
-        font-size: rem(16px);
-      }
-      table {
-        margin-top: 0;
-
-        td:first-child {
-          padding-left: 0px;
-        }
-        td,
-        th {
-          padding-left: 50px;
-        }
-        th {
-          text-align: left;
+        @media only screen and (max-width: 720px) {
+          width: 100%;
         }
       }
     }

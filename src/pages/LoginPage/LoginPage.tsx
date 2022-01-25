@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Icon } from 'resources/icons/icons';
+import { useNavigate } from 'react-router-dom';
 
+import { Icon } from 'resources/icons/icons';
 import { Button } from 'ui/atoms/Button/Button';
 import { Input } from 'ui/atoms/Input/Input';
 
@@ -11,6 +12,11 @@ export const LoginPage = (): React.ReactElement => {
   const [password, setPassword] = useState('');
   const [firstLogIn, setFirstLogIn] = useState(false);
   const [seePassword, setSeePassword] = useState(false);
+  const navigate = useNavigate();
+
+  const goToResetPage = (): void => {
+    navigate('/reset-password');
+  };
 
   return (
     <div className="login">
@@ -47,6 +53,7 @@ export const LoginPage = (): React.ReactElement => {
         <Button
           className="login__items__button__forgot"
           text="Resetare Parolă"
+          onClick={() => goToResetPage()}
         />
       </div>
       {firstLogIn ? (
