@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Icon } from 'resources/icons/icons';
 
 import { Button } from 'ui/atoms/Button/Button';
 import { Input } from 'ui/atoms/Input/Input';
@@ -8,34 +9,44 @@ import './LoginPage.scss';
 export const LoginPage = (): React.ReactElement => {
   const [username, setUserName] = useState('');
   const [password, setPassword] = useState('');
-  const [firstLogIn, setfirstLogIn] = useState(0);
+  const [firstLogIn, setFirstLogIn] = useState(false);
+  const [seePassword, setSeePassword] = useState(false);
 
   return (
     <div className="login">
       <div className="login__items">
         <div className="login__items__title">Salut, autentifică-te</div>
-        <Input
-          value={username}
-          placeholder="Cont"
-          className="login__items__input"
-          onChange={setUserName}
-        />
-        <Input
-          value={password}
-          placeholder="Parolă"
-          type="password"
-          className="login__items__input"
-          onChange={setPassword}
-        />
+        <div className="login__items__row">
+          <Input
+            value={username}
+            placeholder="Cont"
+            className="login__items__input"
+            onChange={setUserName}
+          />
+          <Icon
+            type="question"
+            className="login__items__icon"
+            onClick={() => setFirstLogIn(!firstLogIn)}
+          />
+        </div>
+        <div className="login__items__row">
+          <Input
+            value={password}
+            placeholder="Parolă"
+            type={seePassword ? 'text' : 'password'}
+            className="login__items__input"
+            onChange={setPassword}
+          />
+          <Icon
+            type="password"
+            className="login__items__icon"
+            onClick={() => setSeePassword(!seePassword)}
+          />
+        </div>
         <Button className="login__items__button" text="Autentificare" />
         <Button
           className="login__items__button__forgot"
           text="Resetare Parolă"
-        />
-        <Button
-          className="login__items__button__firstLogIn"
-          text="Prima Autentificare"
-          onClick={() => setfirstLogIn(1)}
         />
       </div>
       {firstLogIn ? (

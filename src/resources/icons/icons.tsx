@@ -12,6 +12,88 @@ const iconColors = {
 
 export const Icon: React.FC<Props> = ({ type, className, onClick }) => {
   switch (type) {
+    case 'question':
+      return (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="64"
+          height="64"
+          viewBox="0 0 64 64"
+          className={className}
+          onClick={onClick}
+          fill={iconColors.dark}
+        >
+          <circle
+            data-name="layer2"
+            cx="32"
+            cy="32"
+            r="30"
+            fill="none"
+            stroke="#202020"
+            strokeMiterlimit="10"
+            strokeWidth="3"
+            strokeLinejoin="round"
+            strokeLinecap="round"
+          ></circle>
+          <path
+            data-name="layer1"
+            fill="none"
+            stroke="#202020"
+            strokeMiterlimit="10"
+            strokeWidth="2"
+            d="M28 26h4v22m-4 .008h8"
+            strokeLinejoin="round"
+            strokeLinecap="round"
+          ></path>
+          <circle
+            data-name="layer1"
+            cx="31"
+            cy="19"
+            r="2"
+            fill="none"
+            stroke="#202020"
+            strokeMiterlimit="10"
+            strokeWidth="3"
+            strokeLinejoin="round"
+            strokeLinecap="round"
+          ></circle>
+        </svg>
+      );
+    case 'password':
+      return (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="64"
+          height="64"
+          viewBox="0 0 64 64"
+          className={className}
+          onClick={onClick}
+          fill={iconColors.dark}
+        >
+          <path
+            data-name="layer2"
+            d="M32 14.5C14.8 14.5 2.5 32 2.5 32S14.8 49.5 32 49.5 61.5 32 61.5 32 49.2 14.5 32 14.5z"
+            fill="none"
+            stroke="#202020"
+            strokeMiterlimit="10"
+            strokeWidth="3"
+            strokeLinejoin="round"
+            strokeLinecap="round"
+          ></path>
+          <circle
+            data-name="layer1"
+            cx="32"
+            cy="31.5"
+            r="12"
+            fill="none"
+            stroke="#202020"
+            strokeMiterlimit="10"
+            strokeWidth="3"
+            strokeLinejoin="round"
+            strokeLinecap="round"
+          ></circle>
+        </svg>
+      );
     case 'phone':
       return (
         <svg
