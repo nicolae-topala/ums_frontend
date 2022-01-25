@@ -1,4 +1,5 @@
 import { LoginPage } from 'pages/LoginPage/LoginPage';
+import { ResetPage } from 'pages/ResetPage/ResetPage';
 import { InfoPage } from 'pages/InfoPage/InfoPage';
 import { ChangeEmailPage } from 'pages/ChangeEmailPage/ChangeEmailPage';
 import { ChangePasswordPage } from 'pages/ChangePasswordPage/ChangePasswordPage';
@@ -18,6 +19,7 @@ export const routes = {
   allRoutes: [
     { path: '/info', element: InfoPage },
     { path: '/login', element: LoginPage },
+    { path: '/reset-password', element: ResetPage },
     { path: '/change-email', element: ChangeEmailPage },
     { path: '/change-password', element: ChangePasswordPage },
     { path: '/student-data', element: StudentDataPage },
