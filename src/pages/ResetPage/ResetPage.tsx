@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { Icon } from 'resources/icons/icons';
 import { Button } from 'ui/atoms/Button/Button';
 import { Input } from 'ui/atoms/Input/Input';
 

@@ -43,11 +43,19 @@ export const LoginPage = (): React.ReactElement => {
             className="login__items__input"
             onChange={setPassword}
           />
-          <Icon
-            type="password"
-            className="login__items__icon"
-            onClick={() => setSeePassword(!seePassword)}
-          />
+          {seePassword ? (
+            <Icon
+              type="password"
+              className="login__items__icon"
+              onClick={() => setSeePassword(!seePassword)}
+            />
+          ) : (
+            <Icon
+              type="noPassword"
+              className="login__items__icon"
+              onClick={() => setSeePassword(!seePassword)}
+            />
+          )}
         </div>
         <Button className="login__items__button" text="Autentificare" />
         <Button
