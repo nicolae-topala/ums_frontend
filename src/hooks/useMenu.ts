@@ -1,27 +1,27 @@
-import { Menu } from './menu.types';
+import { Menu, isRouteActive } from './menuNav.types';
 
 export const useMenu = (): Menu[] => {
   const menu = [
-    { label: 'Info', route: '/info' },
+    { label: 'Info', route: '/info', active: isRouteActive('/info') },
     {
       label: 'Student',
-      route: '/student-data',
+      route: '/student',
+      active: isRouteActive('/student'),
     },
     {
       label: 'Note',
       route: '/curriculum',
+      active: isRouteActive('/curriculum'),
     },
     {
       label: 'Financiar',
       route: '/financial',
-    },
-    {
-      label: 'Cazări',
-      route: '/accommodation',
+      active: isRouteActive('/financial'),
     },
     {
       label: 'Profil',
-      route: '/change-email',
+      route: '/profile',
+      active: isRouteActive('/profile'),
     },
   ];
 

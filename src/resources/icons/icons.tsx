@@ -12,6 +12,39 @@ const iconColors = {
 
 export const Icon: React.FC<Props> = ({ type, className, onClick }) => {
   switch (type) {
+    case 'logOut':
+      return (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 64 64"
+          className={className}
+          onClick={onClick}
+          fill={iconColors.dark}
+        >
+          <path
+            d="M22 48h16V4H2v43l20 14V19L2 4"
+            strokeWidth="2"
+            strokeMiterlimit="10"
+            strokeLinecap="round"
+            stroke="#202020"
+            fill="none"
+            data-name="layer2"
+            strokeLinejoin="round"
+          ></path>
+          <path
+            d="M32 26h29M51 16l10 10-10 10"
+            strokeWidth="2"
+            strokeMiterlimit="10"
+            strokeLinecap="round"
+            stroke="#202020"
+            fill="none"
+            data-name="layer1"
+            strokeLinejoin="round"
+          ></path>
+        </svg>
+      );
     case 'question':
       return (
         <svg

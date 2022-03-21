@@ -1,21 +1,18 @@
-import { Menu, isRouteActive } from './menu.types';
+import { MenuPage } from './menuPage.types';
 
-export const useGradesMenu = (): Menu[] => {
+export const useGradesMenu = (): MenuPage[] => {
   const menu = [
     {
       label: 'Discipline',
-      route: '/curriculum',
-      active: isRouteActive('/curriculum'),
+      value: 'curriculum',
     },
     {
       label: 'Note',
-      route: '/view-grades',
-      active: isRouteActive('/view-grades'),
+      value: 'grades',
     },
     {
       label: 'Opţionale',
-      route: '/electives',
-      active: isRouteActive('/electives'),
+      value: 'electives',
     },
   ];
 

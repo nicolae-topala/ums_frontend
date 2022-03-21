@@ -1,16 +1,14 @@
-import { Menu, isRouteActive } from './menu.types';
+import { MenuPage } from './menuPage.types';
 
-export const useProfileMenu = (): Menu[] => {
+export const useProfileMenu = (): MenuPage[] => {
   const menu = [
     {
       label: 'Schimbă email',
-      route: '/change-email',
-      active: isRouteActive('/change-email'),
+      value: 'change-email',
     },
     {
       label: 'Schimbă parola',
-      route: '/change-password',
-      active: isRouteActive('/change-password'),
+      value: 'change-password',
     },
   ];
 

@@ -19,28 +19,9 @@ export const Navbar = (): React.ReactElement => {
     <>
       <div className="navbar">
         <div className="navbar__title">UMS</div>
-        <div className="navbar__socials">
-          <a
-            href={env('LINKEDIN_URL')}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Icon type="linkedin" />
-          </a>
-          <a
-            href={env('INSTAGRAM_URL')}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Icon type="instagram" />
-          </a>
-          <a
-            href={env('FACEBOOK_URL')}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Icon type="facebook" />
-          </a>
+        <div className="navbar__log-out">
+          <Icon type="logOut" />
+          <span>Ieșire</span>
         </div>
       </div>
 

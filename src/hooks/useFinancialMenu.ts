@@ -1,21 +1,18 @@
-import { Menu, isRouteActive } from './menu.types';
+import { MenuPage } from './menuPage.types';
 
-export const useFinancialMenu = (): Menu[] => {
+export const useFinancialMenu = (): MenuPage[] => {
   const menu = [
     {
       label: 'Info financiar',
-      route: '/financial',
-      active: isRouteActive('/financial'),
+      value: 'financial',
     },
     {
       label: 'Documente plată',
-      route: '/payments',
-      active: isRouteActive('/payments'),
+      value: 'payments',
     },
     {
       label: 'Reduceri',
-      route: '/discounts',
-      active: isRouteActive('/discounts'),
+      value: 'discounts',
     },
   ];
 
