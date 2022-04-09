@@ -7,6 +7,7 @@ import { Input } from 'ui/atoms/Input/Input';
 import { Button } from 'ui/atoms/Button/Button';
 
 import { useProfileMenu } from 'hooks/useProfileMenu';
+import { profile } from 'libs/http/Profile/profile';
 
 import './ProfilePage.scss';
 
@@ -16,8 +17,22 @@ export const ProfilePage = (): React.ReactElement => {
   const menu = useProfileMenu();
 
   const [oldPassword, setOldPassword] = useState('');
-  const [newPassword, setNewPassword] = useState('');
-  const [repeatNewPassword, setRepeatNewPassword] = useState('');
+  const [password, setPassword] = useState('');
+  const [passwordConfirm, setPasswordConfirm] = useState('');
+  const [passwordError, setPasswordError] = useState('');
+
+  const onChangePassword = async () => {
+    try {
+      await profile.changePassword({
+        oldPassword,
+        password,
+        passwordConfirm,
+      });
+      setPasswordError('');
+    } catch (e: any) {
+      setPasswordError(e.response.data);
+    }
+  };
 
   return (
     <Layout>
@@ -71,7 +86,7 @@ export const ProfilePage = (): React.ReactElement => {
                       <Input
                         type="password"
                         className="change-password__input"
-                        onChange={setNewPassword}
+                        onChange={setPassword}
                       />
                     </td>
                   </tr>
@@ -83,13 +98,21 @@ export const ProfilePage = (): React.ReactElement => {
                       <Input
                         type="password"
                         className="change-password__input"
-                        onChange={setRepeatNewPassword}
+                        onChange={setPasswordConfirm}
                       />
                     </td>
                   </tr>
                 </tbody>
               </table>
-              <Button className="change-password__button" text="Confirmă" />
+              <p></p>
+              {passwordError ? (
+                <span className="change-password__error">{passwordError}</span>
+              ) : null}
+              <Button
+                className="change-password__button"
+                text="Confirmă"
+                onClick={() => onChangePassword()}
+              />
             </div>
           </div>
         ) : (

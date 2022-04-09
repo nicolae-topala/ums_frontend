@@ -112,5 +112,22 @@
       height: 30px;
       margin-bottom: 10px;
     }
+
+    &__error {
+      @include SFProRegular;
+      font-size: rem(16px);
+      color: $textError;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      height: 30px;
+      border-style: solid;
+      border-color: $textError;
+      border-radius: 5px;
+      background-color: $backgroundError;
+      margin-bottom: 10px;
+    }
   }
 }
