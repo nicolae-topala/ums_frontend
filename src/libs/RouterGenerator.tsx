@@ -1,10 +1,7 @@
-import React from 'react';
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Navigate,
-} from 'react-router-dom';
+import { UserContext } from 'context/UserContext';
+import React, { useEffect } from 'react';
+import { load } from 'react-cookies';
+import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
 
 interface RouterObject {
   path: string;
@@ -23,22 +20,27 @@ interface Props {
 export const RouterGenerator: React.FC<Props> = ({
   routes,
 }): React.ReactElement => {
-  return (
-    <Router>
-      <Routes>
-        {routes.allRoutes.map((route: RouterObject) => (
-          <Route
-            key={route.path}
-            path={route.path}
-            element={<route.element />}
-          />
-        ))}
+  const navigate = useNavigate();
+  const { setIsUserLogged } = React.useContext(UserContext);
 
-        <Route
-          path="/"
-          element={<Navigate to={routes.defaultRoute.path} />}
-        ></Route>
-      </Routes>
-    </Router>
+  useEffect(() => {
+    if (load('accessToken')) setIsUserLogged(true);
+    else {
+      setIsUserLogged(false);
+      navigate('/login');
+    }
+  }, []);
+
+  return (
+    <Routes>
+      {routes.allRoutes.map((route: RouterObject) => (
+        <Route key={route.path} path={route.path} element={<route.element />} />
+      ))}
+
+      <Route
+        path="/"
+        element={<Navigate to={routes.defaultRoute.path} />}
+      ></Route>
+    </Routes>
   );
 };

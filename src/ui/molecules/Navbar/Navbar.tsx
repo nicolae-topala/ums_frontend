@@ -1,7 +1,8 @@
 import React from 'react';
-import env from '@beam-australia/react-env';
 import { useNavigate } from 'react-router-dom';
+import { remove } from 'react-cookies';
 
+import { auth } from 'libs/http/auth/auth';
 import { useMenu } from 'hooks/useMenu';
 import { Icon } from 'resources/icons/icons';
 
@@ -15,11 +16,18 @@ export const Navbar = (): React.ReactElement => {
     navigate(route);
   };
 
+  const logOut = async () => {
+    await auth.logout();
+    remove('accessToken', { path: '/' });
+    remove('refreshToken', { path: '/' });
+    navigate('/login');
+  };
+
   return (
     <>
       <div className="navbar">
         <div className="navbar__title">UMS</div>
-        <div className="navbar__log-out">
+        <div className="navbar__log-out" onClick={() => logOut()}>
           <Icon type="logOut" />
           <span>Ieșire</span>
         </div>

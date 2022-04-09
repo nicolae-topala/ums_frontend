@@ -1,5 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { load, save } from 'react-cookies';
 import { useNavigate } from 'react-router-dom';
+
+import { auth } from 'libs/http/auth/auth';
+import { UserContext } from 'context/UserContext';
 
 import { Icon } from 'resources/icons/icons';
 import { Button } from 'ui/atoms/Button/Button';
@@ -8,11 +12,33 @@ import { Input } from 'ui/atoms/Input/Input';
 import './LoginPage.scss';
 
 export const LoginPage = (): React.ReactElement => {
+  const navigate = useNavigate();
+
   const [username, setUserName] = useState('');
   const [password, setPassword] = useState('');
   const [firstLogIn, setFirstLogIn] = useState(false);
   const [seePassword, setSeePassword] = useState(false);
-  const navigate = useNavigate();
+  const { setIsUserLogged } = React.useContext(UserContext);
+
+  useEffect(() => {
+    if (load('accessToken')) {
+      setIsUserLogged(true);
+      navigate('/');
+    }
+  }, []);
+
+  const onLogin = async () => {
+    const { data } = await auth.login({ username, password });
+
+    if (data?.accessToken && data?.refreshToken) {
+      save('accessToken', data.accessToken, { path: '/' });
+      save('refreshToken', data.refreshToken, { path: '/' });
+
+      setIsUserLogged(true);
+      navigate('/');
+    }
+    console.log(data);
+  };
 
   const goToResetPage = (): void => {
     navigate('/reset-password');
@@ -57,7 +83,11 @@ export const LoginPage = (): React.ReactElement => {
             />
           )}
         </div>
-        <Button className="login__items__button" text="Autentificare" />
+        <Button
+          className="login__items__button"
+          text="Autentificare"
+          onClick={() => onLogin()}
+        />
         <Button
           className="login__items__button__forgot"
           text="Resetare Parolă"
