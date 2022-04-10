@@ -12,9 +12,11 @@ import { profile } from 'libs/http/Profile/profile';
 import './ProfilePage.scss';
 
 export const ProfilePage = (): React.ReactElement => {
-  const [email, setEmail] = useState('');
   const [pageValue, setPageValue] = useState('change-email');
   const menu = useProfileMenu();
+
+  const [email, setEmail] = useState('');
+  const [emailError, setEmailError] = useState('');
 
   const [oldPassword, setOldPassword] = useState('');
   const [password, setPassword] = useState('');
@@ -31,6 +33,17 @@ export const ProfilePage = (): React.ReactElement => {
       setPasswordError('');
     } catch (e: any) {
       setPasswordError(e.response.data);
+    }
+  };
+
+  const onChangeEmail = async () => {
+    try {
+      await profile.changeEmail({
+        email,
+      });
+      setEmailError('');
+    } catch (e: any) {
+      setEmailError(e.response.data);
     }
   };
 
@@ -54,7 +67,14 @@ export const ProfilePage = (): React.ReactElement => {
                 Introduceţi adresa nouă de email:{' '}
                 <Input onChange={setEmail} className="change-email__input" />
               </p>
-              <Button text="Schimbă" className="change-email__button" />
+              {emailError ? (
+                <span className="change-password__error">{emailError}</span>
+              ) : null}
+              <Button
+                text="Schimbă"
+                className="change-email__button"
+                onClick={() => onChangeEmail()}
+              />
             </div>
           </div>
         ) : (
