@@ -1,27 +1,33 @@
 @import '../../../styles/helpers.scss', '../../../styles/palette.scss',
   '../../../styles/typography.scss';
 
-table {
+.table-small {
   margin-top: 20px;
 
   caption {
     @include SFProBold;
-    font-size: rem(16px);
+    font-size: rem(18px);
     text-align: left;
     margin-bottom: 5px;
+    color: $secondaryBlue;
+  }
+
+  td,
+  th {
+    width: 150px;
   }
 }
 
 .name {
   @include SFProBold;
-  font-size: rem(14px);
+  font-size: rem(16px);
   margin-bottom: 10px;
   color: $textPrimary;
 }
 
 .value {
   @include SFProRegular;
-  font-size: rem(14px);
+  font-size: rem(16px);
   margin-bottom: 10px;
   color: $textPrimary;
 }

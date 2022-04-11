@@ -7,12 +7,20 @@ export const useStudentMenu = (): MenuPage[] => {
       value: 'student-data',
     },
     {
-      label: 'Şcolaritate',
-      value: 'student-education',
+      label: 'Adrese',
+      value: 'student-address',
     },
     {
-      label: 'Date părinţi',
-      value: 'student-parents-details',
+      label: 'Apartenență',
+      value: 'student-belonging',
+    },
+    {
+      label: 'Studii anterioare',
+      value: 'student-prevStudies',
+    },
+    {
+      label: 'Şcolaritate',
+      value: 'student-education',
     },
     {
       label: 'Contact',

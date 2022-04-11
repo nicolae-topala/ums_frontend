@@ -7,10 +7,14 @@ interface dataType {
   value: string;
 }
 
+interface allData {
+  allData?: dataType[];
+}
+
 interface Props {
   className?: string;
   caption?: string;
-  data?: dataType[];
+  tableData?: allData;
   errorMessage?: string;
   large?: boolean;
 }
@@ -18,7 +22,7 @@ interface Props {
 export const Table: React.FC<Props> = ({
   className = '',
   caption = '',
-  data,
+  tableData,
   errorMessage,
   large,
 }): React.ReactElement => {
@@ -51,16 +55,22 @@ export const Table: React.FC<Props> = ({
         </>
       ) : (
         <>
-          <table className={`${className}`}>
-            <caption>{caption}</caption>
-            <tbody>
-              <tr>
-                <td className="name">GET name</td>
-                <td className="value">GET value</td>
-              </tr>
-            </tbody>
-          </table>
-          {errorMessage && <p>{errorMessage}</p>}
+          <div>
+            <table className={`table-small ${className}`}>
+              <caption onClick={() => console.log(tableData)}>
+                {caption}
+              </caption>
+              <tbody>
+                {tableData?.allData?.map((data: dataType) => (
+                  <tr key={data.name}>
+                    <td className="name">{data.name}</td>
+                    <td className="value">{data.value}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            {errorMessage && <p>{errorMessage}</p>}
+          </div>
         </>
       )}
     </>
