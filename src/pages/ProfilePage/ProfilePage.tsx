@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 //UI
 import { Layout } from 'ui/organisms/Layout/Layout';
@@ -14,35 +14,64 @@ import './ProfilePage.scss';
 export const ProfilePage = (): React.ReactElement => {
   const [pageValue, setPageValue] = useState('change-email');
   const menu = useProfileMenu();
+  const [isSending, setIsSending] = useState(false);
 
+  const [userEmail, setUserEmail] = useState('');
   const [email, setEmail] = useState('');
   const [emailError, setEmailError] = useState('');
+  const [emailChanged, setEmailChanged] = useState(false);
 
   const [oldPassword, setOldPassword] = useState('');
   const [password, setPassword] = useState('');
   const [passwordConfirm, setPasswordConfirm] = useState('');
   const [passwordError, setPasswordError] = useState('');
 
+  useEffect(() => {
+    const fetchData = async () => {
+      const { data } = await profile.getUser();
+      setUserEmail(data.email);
+    };
+
+    try {
+      fetchData();
+    } catch (e: any) {
+      setUserEmail(e.message);
+    }
+  }, [emailChanged]);
+
   const onChangePassword = async () => {
     try {
+      if (isSending) return;
+      setIsSending(true);
+
       await profile.changePassword({
         oldPassword,
         password,
         passwordConfirm,
       });
+
+      setIsSending(false);
       setPasswordError('');
     } catch (e: any) {
+      setIsSending(false);
       setPasswordError(e.response.data);
     }
   };
 
   const onChangeEmail = async () => {
     try {
+      if (isSending) return;
+      setIsSending(true);
+
       await profile.changeEmail({
         email,
       });
+
+      setEmailChanged(!emailChanged);
+      setIsSending(false);
       setEmailError('');
     } catch (e: any) {
+      setIsSending(false);
       setEmailError(e.response.data);
     }
   };
@@ -62,7 +91,7 @@ export const ProfilePage = (): React.ReactElement => {
                 contul UMS Web. Veţi putea utiliza noua adresă de email în cazul
                 în care doriţi să vă resetaţi parola în aplicaţia UMS Web.
               </p>
-              <p>Adresa de email curentă: {email}</p>
+              <p>Adresa de email curentă: {userEmail}</p>
               <p>
                 Introduceţi adresa nouă de email:{' '}
                 <Input onChange={setEmail} className="change-email__input" />
@@ -73,6 +102,7 @@ export const ProfilePage = (): React.ReactElement => {
               <Button
                 text="Schimbă"
                 className="change-email__button"
+                disabled={isSending}
                 onClick={() => onChangeEmail()}
               />
             </div>
@@ -131,6 +161,7 @@ export const ProfilePage = (): React.ReactElement => {
               <Button
                 className="change-password__button"
                 text="Confirmă"
+                disabled={isSending}
                 onClick={() => onChangePassword()}
               />
             </div>

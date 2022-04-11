@@ -6,6 +6,7 @@ import './Button.scss';
 interface Props {
   text: string;
   onClick?: () => void;
+  disabled?: boolean;
   className?: string;
   loading?: boolean;
 }
@@ -13,11 +14,16 @@ interface Props {
 export const Button: React.FC<Props> = ({
   text,
   onClick,
+  disabled,
   className = '',
   loading = false,
 }): ReactElement => {
   return (
-    <button className={`button ${className}`} onClick={onClick}>
+    <button
+      className={`button ${className}`}
+      disabled={disabled}
+      onClick={onClick}
+    >
       {loading && <LoaderSpinner />}
       {text}
     </button>
