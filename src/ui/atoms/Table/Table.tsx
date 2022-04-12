@@ -35,18 +35,20 @@ export const Table: React.FC<Props> = ({
               <caption>{caption}</caption>
               <thead>
                 <tr>
-                  <th className="name">GET name</th>
-                  <th className="name">GET name</th>
+                  {tableData?.allData?.map((data: dataType) => (
+                    <td className="name" key={data.name}>
+                      {data.name}
+                    </td>
+                  ))}
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td className="value">GET value</td>
-                  <td className="value">GET value</td>
-                </tr>
-                <tr>
-                  <td className="value">GET value</td>
-                  <td className="value">GET value</td>
+                  {tableData?.allData?.map((data: dataType) => (
+                    <td className="value" key={data.name}>
+                      {data.value}
+                    </td>
+                  ))}
                 </tr>
               </tbody>
             </table>
