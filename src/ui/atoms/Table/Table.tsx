@@ -1,27 +1,12 @@
 import React from 'react';
 
+import { Props } from './table.types';
 import './Table.scss';
-
-interface dataType {
-  name: string;
-  value: string;
-}
-
-interface allData {
-  allData?: dataType[];
-}
-
-interface Props {
-  className?: string;
-  caption?: string;
-  tableData?: allData;
-  errorMessage?: string;
-  large?: boolean;
-}
 
 export const Table: React.FC<Props> = ({
   className = '',
   caption = '',
+  largeTableData,
   tableData,
   errorMessage,
   large,
@@ -35,21 +20,23 @@ export const Table: React.FC<Props> = ({
               <caption>{caption}</caption>
               <thead>
                 <tr>
-                  {tableData?.allData?.map((data: dataType) => (
-                    <td className="name" key={data.name}>
-                      {data.name}
+                  {largeTableData?.headers.map((data) => (
+                    <td className="name" key={data.key}>
+                      {data.label}
                     </td>
                   ))}
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  {tableData?.allData?.map((data: dataType) => (
-                    <td className="value" key={data.name}>
-                      {data.value}
-                    </td>
-                  ))}
-                </tr>
+                {largeTableData?.values.map((data) => (
+                  <tr key={data.code}>
+                    <td className="value">{data.code}</td>
+                    <td className="value">{data.name}</td>
+                    <td className="value">{data.category}</td>
+                    <td className="value">{data.ects}</td>
+                    <td className="value">{data.examinationForm}</td>
+                  </tr>
+                ))}
               </tbody>
             </table>
             {errorMessage && <p>{errorMessage}</p>}
@@ -63,7 +50,7 @@ export const Table: React.FC<Props> = ({
                 {caption}
               </caption>
               <tbody>
-                {tableData?.allData?.map((data: dataType) => (
+                {tableData?.allData.map((data) => (
                   <tr key={data.name}>
                     <td className="name">{data.name}</td>
                     <td className="value">{data.value}</td>

@@ -32,7 +32,7 @@ export const CurriculumPage = (): React.ReactElement => {
   const [data, setData] = useState([{}]);
   const [selectedYear, setSelectedYear] = useState<number>();
   const [selectedSemester, setSelectedSemester] = useState<number>();
-  const [tableData, setTableData] = useState({});
+  const [tableData, setTableData] = useState([{}]);
   const [tableReady, setTableReady] = useState(false);
 
   const checkYear = (event: SingleValue<{ value: number }>) => {
@@ -47,27 +47,20 @@ export const CurriculumPage = (): React.ReactElement => {
 
   useEffect(() => {
     if (selectedYear && selectedSemester) {
-      let data1 = {};
+      const collectData: getCurriculum[] = [];
       data.map((thisData: getCurriculum) => {
         if (
           thisData.yearNumber == selectedYear &&
           thisData.semesterNumber == selectedSemester
         ) {
-          data1 = {
-            allData: [
-              { name: 'Cod', value: thisData.code },
-              { name: 'Denumire', value: thisData.name },
-              { name: 'Categorie', value: thisData.category },
-              { name: 'Nr. Credite', value: thisData.ects },
-            ],
-          };
+          collectData.push(thisData);
         }
       });
-      // check if data1 object is not empty
-      if (Object.entries(data1).length === 0) setTableReady(false);
+      setTableData(collectData);
+      // check if data object is not empty
+      if (Object.entries(collectData).length === 0) setTableReady(false);
       else {
         setTableReady(true);
-        setTableData(data1);
       }
     }
   }, [selectedYear, selectedSemester]);
@@ -115,7 +108,23 @@ export const CurriculumPage = (): React.ReactElement => {
                   isSearchable={false}
                 />
               </div>
-              {tableReady ? <Table large tableData={tableData} /> : ''}
+              {tableReady ? (
+                <Table
+                  large
+                  largeTableData={{
+                    headers: [
+                      { key: 'code', label: 'Cod' },
+                      { key: 'name', label: 'Denumire' },
+                      { key: 'category', label: 'Categorie' },
+                      { key: 'ects', label: 'Nr. credite' },
+                      { key: 'examinationForm', label: 'Tip examinare' },
+                    ],
+                    values: tableData,
+                  }}
+                />
+              ) : (
+                ''
+              )}
             </div>
           </div>
         ) : (

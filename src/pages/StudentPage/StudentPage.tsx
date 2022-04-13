@@ -10,143 +10,159 @@ import { useStudentMenu } from 'hooks/useStudentMenu';
 
 import './StudentPage.scss';
 import { student } from 'libs/http/Student/student';
+import { allData } from 'ui/atoms/Table/table.types';
 
 export const StudentPage = (): React.ReactElement => {
   const menu = useStudentMenu();
   const [pageValue, setPageValue] = useState('student-data');
 
-  const [personal, setPersonal] = useState({});
-  const [identification, setIdentification] = useState({});
-  const [citizenship, setCitizenship] = useState({});
-  const [birth, setBirth] = useState({});
-  const [residence, setResidence] = useState({});
-  const [religion, setReligion] = useState({});
-  const [belonging, setBelonging] = useState({});
-  const [military, setMilitary] = useState({});
-  const [highschool, setHighschool] = useState({});
-  const [university, setUniversity] = useState({});
-  const [contact, setContact] = useState({});
+  const [personal, setPersonal] = useState<allData>();
+  const [identification, setIdentification] = useState<allData>();
+  const [citizenship, setCitizenship] = useState<allData>();
+  const [birth, setBirth] = useState<allData>();
+  const [residence, setResidence] = useState<allData>();
+  const [religion, setReligion] = useState<allData>();
+  const [belonging, setBelonging] = useState<allData>();
+  const [military, setMilitary] = useState<allData>();
+  const [highschool, setHighschool] = useState<allData>();
+  const [university, setUniversity] = useState<allData>();
+  const [contact, setContact] = useState<allData>();
 
   useEffect(() => {
     const fetchData = async () => {
       const { data } = await student.getStudent();
-      const personal = {
-        allData: [
-          { name: 'Nume', value: data.students_lastName },
-          { name: 'Prenume', value: data.students_firstName },
-          { name: 'Prenume mamă', value: data.students_firstNameMother },
-          { name: 'Prenume tată', value: data.students_firstNameFather },
-        ],
-      };
-      setPersonal(personal);
 
-      const lol = new Date(data.students_birthdate).toISOString().slice(0, 10);
-      const identification = {
+      setPersonal({
         allData: [
-          { name: 'CNP', value: data.students_cnp },
-          { name: 'Pașaport', value: data.students_passport },
-          { name: 'Carte Identitate', value: data.students_idCard },
+          { name: 'Nume', value: data.students_lastName || '' },
+          { name: 'Prenume', value: data.students_firstName || '' },
+          { name: 'Prenume mamă', value: data.students_firstNameMother || '' },
+          { name: 'Prenume tată', value: data.students_firstNameFather || '' },
+        ],
+      });
+
+      const students_birthdate = new Date(data.students_birthdate)
+        .toISOString()
+        .slice(0, 10);
+      setIdentification({
+        allData: [
+          { name: 'CNP', value: data.students_cnp || '' },
+          { name: 'Pașaport', value: data.students_passport || '' },
+          { name: 'Carte Identitate', value: data.students_idCard || '' },
           {
             name: 'Data de naștere',
-            value: lol,
+            value: students_birthdate || '',
           },
         ],
-      };
-      setIdentification(identification);
+      });
 
-      const citizenship = {
+      setCitizenship({
         allData: [
-          { name: 'Sex', value: data.students_sex },
-          { name: 'Cetățenie', value: data.students_citizenship },
-          { name: 'Naționalitate', value: data.students_nationality },
+          { name: 'Sex', value: data.students_sex || '' },
+          { name: 'Cetățenie', value: data.students_citizenship || '' },
+          { name: 'Naționalitate', value: data.students_nationality || '' },
         ],
-      };
-      setCitizenship(citizenship);
+      });
 
-      const birth = {
+      setBirth({
         allData: [
-          { name: 'Țară naștere', value: data.students_countryBirth },
-          { name: 'Județ naștere', value: data.students_cityBirth },
-          { name: 'Localitate naștere', value: data.students_countyBirth },
+          { name: 'Țară naștere', value: data.students_countryBirth || '' },
+          { name: 'Județ naștere', value: data.students_cityBirth || '' },
+          {
+            name: 'Localitate naștere',
+            value: data.students_countyBirth || '',
+          },
         ],
-      };
-      setBirth(birth);
+      });
 
-      const residence = {
+      setResidence({
         allData: [
-          { name: 'Țară domiciliu', value: data.students_countryResidence },
-          { name: 'Județ domiciliu', value: data.students_cityResidence },
+          {
+            name: 'Țară domiciliu',
+            value: data.students_countryResidence || '',
+          },
+          { name: 'Județ domiciliu', value: data.students_cityResidence || '' },
           {
             name: 'Localitate domiciliu',
-            value: data.students_countyResidence,
+            value: data.students_countyResidence || '',
           },
         ],
-      };
-      setResidence(residence);
+      });
 
-      const religion = {
-        allData: [{ name: 'Religie', value: data.students_religion }],
-      };
-      setReligion(religion);
+      setReligion({
+        allData: [
+          {
+            name: 'Religie',
+            value: data.students_religion || '',
+          },
+        ],
+      });
 
       let students_minority;
       if (data.students_minority == false) students_minority = 'Nu';
       else students_minority = 'Da';
-      const belonging = {
+      setBelonging({
         allData: [
-          { name: 'Minoritar', value: students_minority },
-          { name: 'Stare civilă', value: data.students_maritalStatus },
+          { name: 'Minoritar', value: students_minority || '' },
+          { name: 'Stare civilă', value: data.students_maritalStatus || '' },
         ],
-      };
-      setBelonging(belonging);
+      });
 
       let students_militarySituation;
       if (data.students_militarySituation == false)
         students_militarySituation = 'Neîncorporabil';
       else students_militarySituation = 'Încorporabil';
-      const military = {
+      setMilitary({
         allData: [
-          { name: 'Situația militară', value: students_militarySituation },
-          { name: 'Livret militar', value: data.students_militaryBooklet },
+          {
+            name: 'Situația militară',
+            value: students_militarySituation || '',
+          },
+          {
+            name: 'Livret militar',
+            value: data.students_militaryBooklet || '',
+          },
         ],
-      };
-      setMilitary(military);
+      });
 
       let students_highschoolOlympic;
       if (data.students_highschoolOlympic == false)
         students_highschoolOlympic = 'Nu';
       else students_highschoolOlympic = 'Da';
-      const highschool = {
+      setHighschool({
         allData: [
           {
             name: 'Anul de absolvire',
-            value: data.students_highschoolGraduation,
+            value: `${data.students_highschoolGraduation}` || '',
           },
           {
             name: 'Medie bacalaureat',
-            value: data.students_highschoolBaccalaureate,
+            value: `${data.students_highschoolBaccalaureate}` || '',
           },
-          { name: 'Olimpic', value: students_highschoolOlympic },
+          { name: 'Olimpic', value: students_highschoolOlympic || '' },
         ],
-      };
-      setHighschool(highschool);
+      });
 
-      const university = {
+      setUniversity({
         allData: [
-          { name: 'Grupa', value: data.students_group },
-          { name: 'Număr matricol', value: data.students_registrationNumber },
-          { name: 'Media admitere', value: data.students_admissionGrade },
+          { name: 'Grupa', value: data.students_group || '' },
+          {
+            name: 'Număr matricol',
+            value: `${data.students_registrationNumber}` || '',
+          },
+          {
+            name: 'Media admitere',
+            value: `${data.students_admissionGrade}` || '',
+          },
         ],
-      };
-      setUniversity(university);
+      });
 
-      const contact = {
+      setContact({
         allData: [
-          { name: 'Telefon', value: data.students_phone },
-          { name: 'Email', value: data.students_email },
+          { name: 'Telefon', value: data.students_phone || '' },
+          { name: 'Email', value: data.students_email || '' },
         ],
-      };
-      setContact(contact);
+      });
     };
     try {
       fetchData();
