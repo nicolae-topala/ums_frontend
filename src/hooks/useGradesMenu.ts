@@ -10,10 +10,6 @@ export const useGradesMenu = (): MenuPage[] => {
       label: 'Note',
       value: 'grades',
     },
-    {
-      label: 'Opţionale',
-      value: 'electives',
-    },
   ];
 
   return menu;

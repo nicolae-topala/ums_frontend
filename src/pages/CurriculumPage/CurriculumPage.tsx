@@ -156,32 +156,6 @@ export const CurriculumPage = (): React.ReactElement => {
         ) : (
           ''
         )}
-        {pageValue == 'electives' ? (
-          <div className="curriculum">
-            <div className="curriculum__title">Discipline opţionale</div>
-            <div className="curriculum__description">
-              <div className="curriculum__container">
-                <p>An universitar</p>
-                <Select
-                  className="curriculum__container__input"
-                  options={year}
-                  isSearchable={false}
-                />
-              </div>
-              <div className="curriculum__container">
-                <p>Semestru</p>
-                <Select
-                  className="curriculum__container__input"
-                  options={semester}
-                  isSearchable={false}
-                />
-              </div>
-              <Table large />
-            </div>
-          </div>
-        ) : (
-          ''
-        )}
       </div>
     </Layout>
   );
