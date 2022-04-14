@@ -4,7 +4,8 @@ import Select, { SingleValue } from 'react-select';
 // ui
 import { Layout } from 'ui/organisms/Layout/Layout';
 import { Menu } from 'ui/molecules/Menu/Menu';
-import { Table } from 'ui/atoms/Table/Table';
+import { TableCurriculum } from './atoms/TableCurriculum/TableCurriculum';
+import { TableGrades } from './atoms/TableGrades/TableGrades';
 
 // hooks
 import { useGradesMenu } from 'hooks/useGradesMenu';
@@ -12,6 +13,7 @@ import { useGradesMenu } from 'hooks/useGradesMenu';
 // libs
 import { curriculum } from 'libs/http/Curriculum/curriculum';
 import { getCurriculum } from 'libs/http/Curriculum/curriculum.types';
+import { getGrades } from 'libs/http/Curriculum/grades.types';
 
 import './CurriculumPage.scss';
 
@@ -30,50 +32,87 @@ export const CurriculumPage = (): React.ReactElement => {
   ];
 
   // Curriculum states
-  const [data, setData] = useState<getCurriculum[]>([]);
-  const [selectedYear, setSelectedYear] = useState<number>();
-  const [selectedSemester, setSelectedSemester] = useState<number>();
-  const [tableData, setTableData] = useState<getCurriculum[]>([]);
-  const [tableReady, setTableReady] = useState(false);
+  const [dataCurriculum, setDataCurriculum] = useState<getCurriculum[]>([]);
+  const [selectedYearCurriculum, setSelectedYearCurriculum] =
+    useState<number>();
+  const [selectedSemesterCurriculum, setSelectedSemesterCurriculum] =
+    useState<number>();
+  const [tableDataCurriculum, setTableDataCurriculum] = useState<
+    getCurriculum[]
+  >([]);
+  const [tableReadyCurriculum, setTableReadyCurriculum] = useState(false);
 
-  const checkYear = (event: SingleValue<{ value: number }>) => {
-    const value = event?.value;
-    setSelectedYear(value);
-  };
+  // Grades states
+  const [dataGrades, setDataGrades] = useState<getGrades[]>([]);
+  const [tableDataGrades, setTableDataGrades] = useState<getGrades[]>([]);
+  const [selectedYearGrades, setSelectedYearGrades] = useState<number>();
+  const [selectedSemesterGrades, setSelectedSemesterGrades] =
+    useState<number>();
+  const [tableReadyGrades, setTableReadyGrades] = useState(false);
 
-  const checkSemester = (event: SingleValue<{ value: number }>) => {
+  const setState = (
+    event: SingleValue<{ value: number }>,
+    state: React.Dispatch<React.SetStateAction<number | undefined>>
+  ) => {
     const value = event?.value;
-    setSelectedSemester(value);
+    state(value);
   };
 
   useEffect(() => {
-    if (selectedYear && selectedSemester) {
+    if (selectedYearCurriculum && selectedSemesterCurriculum) {
       const collectData: getCurriculum[] = [];
-      data.map((thisData) => {
+      dataCurriculum.map((thisData) => {
         if (
-          thisData.yearNumber == selectedYear &&
-          thisData.semesterNumber == selectedSemester
+          thisData.yearNumber == selectedYearCurriculum &&
+          thisData.semesterNumber == selectedSemesterCurriculum
         ) {
           collectData.push(thisData);
         }
       });
-      setTableData(collectData);
+      setTableDataCurriculum(collectData);
       // check if data object is not empty
-      if (Object.entries(collectData).length === 0) setTableReady(false);
+      if (Object.entries(collectData).length === 0)
+        setTableReadyCurriculum(false);
       else {
-        setTableReady(true);
+        setTableReadyCurriculum(true);
       }
     }
-  }, [selectedYear, selectedSemester]);
+  }, [selectedYearCurriculum, selectedSemesterCurriculum]);
 
   useEffect(() => {
-    const fetchData = async () => {
+    if (selectedYearGrades && selectedSemesterGrades) {
+      const collectData: getGrades[] = [];
+      dataGrades.map((thisData) => {
+        if (
+          thisData.courses_yearNumber == selectedYearGrades &&
+          thisData.courses_semesterNumber == selectedSemesterGrades &&
+          thisData.finalGrade != null
+        ) {
+          collectData.push(thisData);
+        }
+      });
+      setTableDataGrades(collectData);
+      // check if data object is not empty
+      if (Object.entries(collectData).length === 0) setTableReadyGrades(false);
+      else {
+        setTableReadyGrades(true);
+      }
+    }
+  }, [selectedYearGrades, selectedSemesterGrades]);
+
+  useEffect(() => {
+    const fetchDataCurriculum = async () => {
       const { data } = await curriculum.getCurriculum();
-      setData(data);
+      setDataCurriculum(data);
+    };
+    const fetchDataGrades = async () => {
+      const { data } = await curriculum.getGrades();
+      setDataGrades(data);
     };
 
     try {
-      fetchData();
+      fetchDataCurriculum();
+      fetchDataGrades();
     } catch (e: any) {
       console.log(e);
     }
@@ -96,7 +135,7 @@ export const CurriculumPage = (): React.ReactElement => {
                 <Select
                   className="curriculum__container__input"
                   options={year}
-                  onChange={checkYear}
+                  onChange={(e) => setState(e, setSelectedYearCurriculum)}
                   isSearchable={false}
                 />
               </div>
@@ -105,14 +144,13 @@ export const CurriculumPage = (): React.ReactElement => {
                 <Select
                   className="curriculum__container__input"
                   options={semester}
-                  onChange={checkSemester}
+                  onChange={(e) => setState(e, setSelectedSemesterCurriculum)}
                   isSearchable={false}
                 />
               </div>
-              {tableReady ? (
-                <Table
-                  large
-                  largeTableData={{
+              {tableReadyCurriculum ? (
+                <TableCurriculum
+                  tableData={{
                     headers: [
                       { key: 'code', label: 'Cod' },
                       { key: 'name', label: 'Denumire' },
@@ -120,7 +158,7 @@ export const CurriculumPage = (): React.ReactElement => {
                       { key: 'ects', label: 'Nr. credite' },
                       { key: 'examinationForm', label: 'Tip examinare' },
                     ],
-                    values: tableData,
+                    values: tableDataCurriculum,
                   }}
                 />
               ) : (
@@ -140,6 +178,7 @@ export const CurriculumPage = (): React.ReactElement => {
                 <Select
                   className="curriculum__container__input"
                   options={year}
+                  onChange={(e) => setState(e, setSelectedYearGrades)}
                   isSearchable={false}
                 />
               </div>
@@ -148,10 +187,23 @@ export const CurriculumPage = (): React.ReactElement => {
                 <Select
                   className="curriculum__container__input"
                   options={semester}
+                  onChange={(e) => setState(e, setSelectedSemesterGrades)}
                   isSearchable={false}
                 />
               </div>
-              <Table large />
+              {tableReadyGrades ? (
+                <TableGrades
+                  tableData={{
+                    headers: [
+                      { key: 'courses_name', label: 'Denumire' },
+                      { key: 'finalGrade', label: 'Notă' },
+                      { key: 'courses_ects', label: 'Nr. Credite' },
+                      { key: 'courses_category', label: 'Categorie' },
+                    ],
+                    values: tableDataGrades,
+                  }}
+                />
+              ) : null}
             </div>
           </div>
         ) : (
