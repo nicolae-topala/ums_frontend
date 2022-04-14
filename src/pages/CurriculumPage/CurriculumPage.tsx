@@ -29,10 +29,11 @@ export const CurriculumPage = (): React.ReactElement => {
     { value: 2, label: '2' },
   ];
 
-  const [data, setData] = useState([{}]);
+  // Curriculum states
+  const [data, setData] = useState<getCurriculum[]>([]);
   const [selectedYear, setSelectedYear] = useState<number>();
   const [selectedSemester, setSelectedSemester] = useState<number>();
-  const [tableData, setTableData] = useState([{}]);
+  const [tableData, setTableData] = useState<getCurriculum[]>([]);
   const [tableReady, setTableReady] = useState(false);
 
   const checkYear = (event: SingleValue<{ value: number }>) => {
@@ -48,7 +49,7 @@ export const CurriculumPage = (): React.ReactElement => {
   useEffect(() => {
     if (selectedYear && selectedSemester) {
       const collectData: getCurriculum[] = [];
-      data.map((thisData: getCurriculum) => {
+      data.map((thisData) => {
         if (
           thisData.yearNumber == selectedYear &&
           thisData.semesterNumber == selectedSemester
