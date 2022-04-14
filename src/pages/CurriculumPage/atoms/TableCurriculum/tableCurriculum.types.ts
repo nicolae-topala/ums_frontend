@@ -1,20 +1,11 @@
 import { getCurriculum } from 'libs/http/Curriculum/curriculum.types';
 
-export interface dataType {
-  name: string;
-  value: string;
-}
-
-export interface allData {
-  allData: dataType[];
-}
-
 export interface headers {
   key: string;
   label: string;
 }
 
-export interface largeTableData {
+export interface tableData {
   headers: headers[];
   values: getCurriculum[];
 }
@@ -22,8 +13,6 @@ export interface largeTableData {
 export interface Props {
   className?: string;
   caption?: string;
-  tableData?: allData;
-  largeTableData?: largeTableData;
+  tableData?: tableData;
   errorMessage?: string;
-  large?: boolean;
 }

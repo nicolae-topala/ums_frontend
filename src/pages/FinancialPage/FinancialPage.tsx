@@ -9,7 +9,7 @@ import { Menu } from 'ui/molecules/Menu/Menu';
 import { useFinancialMenu } from 'hooks/useFinancialMenu';
 
 import './FinancialPage.scss';
-import { Table } from 'ui/atoms/Table/Table';
+//import { Table } from 'ui/atoms/Table/Table';
 
 export const FinancialPage = (): React.ReactElement => {
   const menu = useFinancialMenu();
@@ -56,8 +56,8 @@ export const FinancialPage = (): React.ReactElement => {
                   isSearchable={false}
                 />
               </div>
-              <Table caption="Plăţi confirmate" large />
-              <Table caption="Plăţi electronice inactive" large />
+              <span>tabel Plăţi confirmate</span>
+              <span>tabel Plăţi electronice inactive</span>
             </div>
           </div>
         ) : (
@@ -75,7 +75,6 @@ export const FinancialPage = (): React.ReactElement => {
                   isSearchable={false}
                 />
               </div>
-              <Table large />
             </div>
           </div>
         ) : (
