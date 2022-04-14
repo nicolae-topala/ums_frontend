@@ -55,7 +55,7 @@ export const CurriculumPage = (): React.ReactElement => {
     state: React.Dispatch<React.SetStateAction<number | undefined>>
   ) => {
     const value = event?.value;
-    state(value);
+    if (value) state(value);
   };
 
   useEffect(() => {
