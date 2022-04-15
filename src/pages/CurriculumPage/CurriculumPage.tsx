@@ -127,70 +127,76 @@ export const CurriculumPage = (): React.ReactElement => {
 
         {pageValue == 'curriculum' ? (
           <div className="curriculum">
-            <div className="curriculum__title">Discipline</div>
-            <div className="curriculum__description">
-              <p>Facultatea de Ştiinţe Exacte şi Inginereşti</p>
-              <div className="curriculum__container">
-                <p>An universitar</p>
-                <Select
-                  className="curriculum__container__input"
-                  options={year}
-                  onChange={(e) => setState(e, setSelectedYearCurriculum)}
-                  isSearchable={false}
-                />
+            <div>
+              <div className="curriculum__title">Discipline</div>
+              <div className="curriculum__description">
+                <p>Facultatea de Ştiinţe Exacte şi Inginereşti</p>
+                <div className="curriculum__container">
+                  <p>An universitar</p>
+                  <Select
+                    className="curriculum__container__input"
+                    options={year}
+                    onChange={(e) => setState(e, setSelectedYearCurriculum)}
+                    isSearchable={false}
+                  />
+                </div>
+                <div className="curriculum__container">
+                  <p>Semestru</p>
+                  <Select
+                    className="curriculum__container__input"
+                    options={semester}
+                    onChange={(e) => setState(e, setSelectedSemesterCurriculum)}
+                    isSearchable={false}
+                  />
+                </div>
               </div>
-              <div className="curriculum__container">
-                <p>Semestru</p>
-                <Select
-                  className="curriculum__container__input"
-                  options={semester}
-                  onChange={(e) => setState(e, setSelectedSemesterCurriculum)}
-                  isSearchable={false}
-                />
-              </div>
-              {tableReadyCurriculum ? (
-                <TableCurriculum
-                  tableData={{
-                    headers: [
-                      { key: 'code', label: 'Cod' },
-                      { key: 'name', label: 'Denumire' },
-                      { key: 'category', label: 'Categorie' },
-                      { key: 'ects', label: 'Nr. credite' },
-                      { key: 'examinationForm', label: 'Tip examinare' },
-                    ],
-                    values: tableDataCurriculum,
-                  }}
-                />
-              ) : (
-                ''
-              )}
             </div>
+            {tableReadyCurriculum ? (
+              <TableCurriculum
+                tableData={{
+                  headers: [
+                    { key: 'code', label: 'Cod' },
+                    { key: 'name', label: 'Denumire' },
+                    { key: 'category', label: 'Categorie' },
+                    { key: 'ects', label: 'Nr. credite' },
+                    { key: 'examinationForm', label: 'Tip examinare' },
+                  ],
+                  values: tableDataCurriculum,
+                }}
+              />
+            ) : (
+              ''
+            )}
           </div>
         ) : (
           ''
         )}
         {pageValue == 'grades' ? (
           <div className="curriculum">
-            <div className="curriculum__title">Note</div>
-            <div className="curriculum__description">
-              <div className="curriculum__container">
-                <p>An universitar</p>
-                <Select
-                  className="curriculum__container__input"
-                  options={year}
-                  onChange={(e) => setState(e, setSelectedYearGrades)}
-                  isSearchable={false}
-                />
+            <div>
+              <div className="curriculum__title">Note</div>
+              <div className="curriculum__description">
+                <div className="curriculum__container">
+                  <p>An universitar</p>
+                  <Select
+                    className="curriculum__container__input"
+                    options={year}
+                    onChange={(e) => setState(e, setSelectedYearGrades)}
+                    isSearchable={false}
+                  />
+                </div>
+                <div className="curriculum__container">
+                  <p>Semestru</p>
+                  <Select
+                    className="curriculum__container__input"
+                    options={semester}
+                    onChange={(e) => setState(e, setSelectedSemesterGrades)}
+                    isSearchable={false}
+                  />
+                </div>
               </div>
-              <div className="curriculum__container">
-                <p>Semestru</p>
-                <Select
-                  className="curriculum__container__input"
-                  options={semester}
-                  onChange={(e) => setState(e, setSelectedSemesterGrades)}
-                  isSearchable={false}
-                />
-              </div>
+            </div>
+            <div>
               {tableReadyGrades ? (
                 <TableGrades
                   tableData={{

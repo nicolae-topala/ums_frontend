@@ -11,29 +11,31 @@ export const TableCurriculum: React.FC<Props> = ({
 }): React.ReactElement => {
   return (
     <>
-      <table className={`${className} table-curriculum`}>
-        <caption>{caption}</caption>
-        <thead>
-          <tr>
-            {tableData?.headers.map((data) => (
-              <td className="name" key={data.key}>
-                {data.label}
-              </td>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {tableData?.values.map((data) => (
-            <tr key={data.code}>
-              <td className="value">{data.code}</td>
-              <td className="value">{data.name}</td>
-              <td className="value">{data.category}</td>
-              <td className="value">{data.ects}</td>
-              <td className="value">{data.examinationForm}</td>
+      <div className=" table-curriculum">
+        <table className={`${className}`}>
+          <caption>{caption}</caption>
+          <thead>
+            <tr>
+              {tableData?.headers.map((data) => (
+                <td className="name" key={data.key}>
+                  {data.label}
+                </td>
+              ))}
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {tableData?.values.map((data) => (
+              <tr key={data.code}>
+                <td className="value">{data.code}</td>
+                <td className="value">{data.name}</td>
+                <td className="value">{data.category}</td>
+                <td className="value">{data.ects}</td>
+                <td className="value">{data.examinationForm}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
       {errorMessage && <p>{errorMessage}</p>}
     </>
   );

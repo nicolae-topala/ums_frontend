@@ -8,7 +8,10 @@
   justify-content: space-between;
 
   @media only screen and (max-width: 720px) {
+    align-items: center;
     flex-direction: column;
+    width: 80%;
+    margin: auto;
   }
 
   &__menu {
@@ -22,6 +25,7 @@
     margin-left: 20px;
 
     @media only screen and (max-width: 720px) {
+      align-items: center;
       margin-top: 20px;
       margin-left: 0px;
     }
