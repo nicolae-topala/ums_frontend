@@ -7,4 +7,5 @@ export interface getCurriculum {
   weeksNumber: number;
   ects: number;
   examinationForm: string;
+  minimumGrade: string;
 }

@@ -157,9 +157,11 @@ export const CurriculumPage = (): React.ReactElement => {
                   headers: [
                     { key: 'code', label: 'Cod' },
                     { key: 'name', label: 'Denumire' },
-                    { key: 'category', label: 'Categorie' },
                     { key: 'ects', label: 'Nr. credite' },
+                    { key: 'category', label: 'Categorie' },
+                    { key: 'weeksNumber', label: 'Nr. săptămâni' },
                     { key: 'examinationForm', label: 'Tip examinare' },
+                    { key: 'minimumGrade', label: 'Notă minimă' },
                   ],
                   values: tableDataCurriculum,
                 }}

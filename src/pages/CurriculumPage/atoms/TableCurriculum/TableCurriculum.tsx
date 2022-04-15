@@ -28,9 +28,11 @@ export const TableCurriculum: React.FC<Props> = ({
               <tr key={data.code}>
                 <td className="value">{data.code}</td>
                 <td className="value">{data.name}</td>
-                <td className="value">{data.category}</td>
                 <td className="value">{data.ects}</td>
+                <td className="value">{data.category}</td>
+                <td className="value">{data.weeksNumber}</td>
                 <td className="value">{data.examinationForm}</td>
+                <td className="value">{data.minimumGrade}</td>
               </tr>
             ))}
           </tbody>
