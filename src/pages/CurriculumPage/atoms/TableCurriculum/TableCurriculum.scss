@@ -8,12 +8,12 @@
   }
 
   table {
-    display: block;
     border-spacing: 1;
     border-collapse: collapse;
     background: white;
     border-radius: 6px;
-    max-width: 100%;
+    overflow: hidden;
+    width: 100%;
     margin: 0 auto;
     position: relative;
     margin-bottom: 10px;
