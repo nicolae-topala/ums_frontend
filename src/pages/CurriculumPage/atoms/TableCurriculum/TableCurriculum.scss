@@ -4,10 +4,10 @@
 .table-curriculum {
   @media only screen and (max-width: 450px) {
     max-width: 300px;
+    overflow: scroll;
   }
 
   table {
-    overflow: scroll;
     display: block;
     border-spacing: 1;
     border-collapse: collapse;
