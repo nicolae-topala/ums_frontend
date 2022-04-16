@@ -72,7 +72,10 @@ export const InfoPage = (): React.ReactElement => {
           </div>
         </div>
         <div className="info-page__container">
-          <div className="info-page__container__title">
+          <div
+            className="info-page__container__title"
+            style={{ marginTop: '30px' }}
+          >
             <h2>Contacte</h2>
           </div>
           <div className="info-page__container__description">

@@ -6,13 +6,19 @@
   width: 100%;
   flex-direction: column;
   justify-content: center;
+  z-index: 50;
 
   &__container {
     width: 100%;
 
     &__title {
-      background: url(resources/dotted.png) repeat-x center;
+      border-radius: 2px;
       text-align: center;
+      color: $textPrimary;
+      display: flex;
+      flex-direction: row;
+      position: relative;
+      z-index: 2;
 
       h2 {
         @include SFProBold;
@@ -23,9 +29,19 @@
       }
     }
 
+    &__title:before,
+    &__title:after {
+      content: '';
+      flex: 1 1;
+      border-bottom: 2px solid $primaryBlue;
+      padding: 0;
+      margin: auto;
+      border-collapse: collapse;
+    }
+
     &__description {
       width: 100%;
-      margin-top: 20px;
+      margin-top: 40px;
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
