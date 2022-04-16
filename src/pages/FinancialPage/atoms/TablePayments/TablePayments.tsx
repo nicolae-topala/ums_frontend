@@ -11,7 +11,7 @@ export const TablePayments: React.FC<Props> = ({
 }): React.ReactElement => {
   return (
     <>
-      <div className=" table-curriculum">
+      <div className=" table-payments">
         <table className={`${className}`}>
           <caption>{caption}</caption>
           <thead>

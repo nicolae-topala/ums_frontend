@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import Select from 'react-select';
 
 //ui
 import { Layout } from 'ui/organisms/Layout/Layout';
@@ -10,35 +9,60 @@ import { useFinancialMenu } from 'hooks/useFinancialMenu';
 
 // libs
 import { financial } from 'libs/http/Financial/financial';
-import { getPayments } from 'libs/http/Financial/financial.types';
+import { getDiscounts, getPayments } from 'libs/http/Financial/financial.types';
 
 import './FinancialPage.scss';
 import { TablePayments } from './atoms/TablePayments/TablePayments';
+import { TableDiscounts } from './atoms/TableDiscounts/TableDiscounts';
 
 export const FinancialPage = (): React.ReactElement => {
   const menu = useFinancialMenu();
   const [pageValue, setPageValue] = useState('payments');
-  const [tableData, setTableData] = useState<getPayments[]>([]);
-  const [tableReady, setTableReady] = useState(false);
+
+  // Payments
+  const [tableDataPayments, setTableDataPayments] = useState<getPayments[]>([]);
+  const [tableReadyPayments, setTableReadyPayments] = useState(false);
+
+  // Discounts
+  const [tableDataDiscounts, setTableDataDiscounts] = useState<getDiscounts[]>(
+    []
+  );
+  const [tableReadyDiscounts, setTableReadyDiscounts] = useState(false);
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchDataPayments = async () => {
       const { data } = await financial.getPayments();
-      setTableData(data);
+      setTableDataPayments(data);
     };
+
+    const fetchDataDiscounts = async () => {
+      const { data } = await financial.getDiscounts();
+      setTableDataDiscounts(data);
+    };
+
     try {
-      fetchData();
+      fetchDataPayments();
+      fetchDataDiscounts();
     } catch (e: any) {
       console.log(e);
     }
   }, []);
 
   useEffect(() => {
-    if (Object.entries(tableData).length === 0) setTableReady(false);
+    if (Object.entries(tableDataPayments).length === 0)
+      setTableReadyPayments(false);
     else {
-      setTableReady(true);
+      setTableReadyPayments(true);
     }
-  }, [tableData]);
+  }, [tableDataPayments]);
+
+  useEffect(() => {
+    if (Object.entries(tableDataDiscounts).length === 0)
+      setTableReadyDiscounts(false);
+    else {
+      setTableReadyDiscounts(true);
+    }
+  }, [tableDataDiscounts]);
 
   return (
     <Layout>
@@ -51,7 +75,7 @@ export const FinancialPage = (): React.ReactElement => {
             <div className="financial__title">Documente plată</div>
             <div className="financial__description">
               <div className="financial__container"></div>
-              {tableReady ? (
+              {tableReadyPayments ? (
                 <TablePayments
                   tableData={{
                     headers: [
@@ -64,7 +88,7 @@ export const FinancialPage = (): React.ReactElement => {
                       { key: 'invoices_date', label: 'Data' },
                       { key: 'payments_status', label: 'Status' },
                     ],
-                    values: tableData,
+                    values: tableDataPayments,
                   }}
                 />
               ) : (
@@ -79,7 +103,24 @@ export const FinancialPage = (): React.ReactElement => {
           <div className="financial">
             <div className="financial__title">Reduceri</div>
             <div className="financial__description">
-              <div className="financial__container"></div>
+              <div className="financial__container">
+                {tableReadyDiscounts ? (
+                  <TableDiscounts
+                    tableData={{
+                      headers: [
+                        { key: 'discounts_details', label: 'Detalii' },
+                        { key: 'discounts_discountAmmount', label: 'Suma' },
+                        { key: 'discounts_taxType', label: 'Tip taxă' },
+                        { key: 'discounts_date', label: 'Data' },
+                        { key: 'discounts_status', label: 'Status' },
+                      ],
+                      values: tableDataDiscounts,
+                    }}
+                  />
+                ) : (
+                  ''
+                )}
+              </div>
             </div>
           </div>
         ) : (
