@@ -1,0 +1,59 @@
+@import '../../../../styles/helpers.scss', '../../../../styles/palette.scss',
+  '../../../../styles/typography.scss';
+
+.table-curriculum {
+  @media only screen and (max-width: 555px) {
+    max-width: 300px;
+    overflow: scroll;
+  }
+
+  table {
+    border-spacing: 1;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 6px;
+    overflow: hidden;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    margin-bottom: 10px;
+
+    * {
+      position: relative;
+    }
+
+    td,
+    th {
+      padding-left: 8px;
+    }
+
+    thead tr {
+      padding: 10px;
+      height: 60px;
+      background: $tableHeader;
+    }
+
+    tbody tr {
+      height: 48px;
+      border-bottom: 1px solid $tableBorderSeparator;
+
+      &:last-child {
+        border: 0;
+      }
+    }
+
+    td,
+    th {
+      text-align: left;
+      &.l {
+        text-align: right;
+      }
+      &.c {
+        text-align: center;
+      }
+      &.r {
+        text-align: center;
+      }
+    }
+  }
+}

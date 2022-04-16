@@ -85,8 +85,7 @@ export const CurriculumPage = (): React.ReactElement => {
       dataGrades.map((thisData) => {
         if (
           thisData.courses_yearNumber == selectedYearGrades &&
-          thisData.courses_semesterNumber == selectedSemesterGrades &&
-          thisData.finalGrade != null
+          thisData.courses_semesterNumber == selectedSemesterGrades
         ) {
           collectData.push(thisData);
         }
