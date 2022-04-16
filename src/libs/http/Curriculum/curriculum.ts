@@ -1,6 +1,5 @@
 import { axios } from 'libs/http/axios';
-import { getCurriculum } from './curriculum.types';
-import { getGrades } from './grades.types';
+import { getCurriculum, getGrades } from './curriculum.types';
 
 export const curriculum = {
   getCurriculum: (): Promise<{ data: getCurriculum[] }> =>

@@ -12,8 +12,10 @@ import { useGradesMenu } from 'hooks/useGradesMenu';
 
 // libs
 import { curriculum } from 'libs/http/Curriculum/curriculum';
-import { getCurriculum } from 'libs/http/Curriculum/curriculum.types';
-import { getGrades } from 'libs/http/Curriculum/grades.types';
+import {
+  getCurriculum,
+  getGrades,
+} from 'libs/http/Curriculum/curriculum.types';
 
 import './CurriculumPage.scss';
 

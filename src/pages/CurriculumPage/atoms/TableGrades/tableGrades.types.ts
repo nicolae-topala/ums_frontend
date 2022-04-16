@@ -1,4 +1,4 @@
-import { getGrades } from 'libs/http/Curriculum/grades.types';
+import { getGrades } from 'libs/http/Curriculum/curriculum.types';
 
 export interface headers {
   key: string;
