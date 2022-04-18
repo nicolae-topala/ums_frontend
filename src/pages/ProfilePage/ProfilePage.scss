@@ -2,11 +2,9 @@
   '../../styles/typography.scss';
 
 .change-email-page {
-  max-width: 850px;
   display: flex;
   width: 100%;
   flex-direction: row;
-  justify-content: space-between;
 
   @media only screen and (max-width: 720px) {
     flex-direction: column;
@@ -22,17 +20,17 @@
 
   .change-email {
     width: 100%;
+    max-width: 655px;
     display: flex;
     flex-direction: column;
-    margin-left: 20px;
 
     @media only screen and (max-width: 720px) {
       margin-top: 20px;
-      margin-left: 0px;
     }
 
     &__title {
       @include SFProBold;
+      color: $textPrimary;
       font-size: rem(20px);
     }
 
@@ -40,21 +38,31 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      margin-top: 10px;
+      margin-top: 20px;
 
       p {
         @include SFProRegular;
+        color: $textPrimary;
         font-size: rem(16px);
+      }
+
+      span {
+        @include SFProBold;
+        color: $primaryBlue;
+        font-size: rem(16px);
+      }
+
+      &__form {
+        margin-top: 10px;
       }
     }
 
     &__button {
       width: 100px;
-      margin: auto;
     }
 
     &__input {
-      width: 300px;
+      width: 100%;
       height: 30px;
       margin-bottom: 10px;
     }
@@ -64,15 +72,14 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    margin-left: 20px;
 
     @media only screen and (max-width: 720px) {
       margin-top: 20px;
-      margin-left: 0px;
     }
 
     &__title {
       @include SFProBold;
+      color: $textPrimary;
       font-size: rem(20px);
     }
 
@@ -84,11 +91,13 @@
 
       p {
         @include SFProRegular;
+        color: $textPrimary;
         font-size: rem(16px);
       }
 
       table {
         border-spacing: collapse;
+        display: block;
 
         @media screen and (max-width: 720px) {
           table tr {

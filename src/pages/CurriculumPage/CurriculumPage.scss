@@ -2,8 +2,10 @@
   '../../styles/typography.scss';
 
 .curriculum-page {
+  left: 0;
   display: flex;
   width: 100%;
+  max-width: 1600px;
   flex-direction: row;
   justify-content: space-between;
 
@@ -13,52 +15,56 @@
     width: 80%;
     margin: auto;
   }
+}
 
-  &__menu {
-    width: 300px;
+.curriculum {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  @media only screen and (max-width: 720px) {
+    align-items: center;
+    margin-top: 20px;
   }
 
-  .curriculum {
-    width: 100%;
+  p {
+    @include SFProRegular;
+    color: $textPrimary;
+    font-size: rem(16px);
+    margin-bottom: 5px;
+  }
+
+  &__container {
+    width: 300px;
     display: flex;
-    flex-direction: column;
-    margin-left: 20px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
 
-    @media only screen and (max-width: 720px) {
-      align-items: center;
-      margin-top: 20px;
-      margin-left: 0px;
+    @media only screen and (max-width: 345px) {
+      width: 196px;
     }
 
-    p {
-      @include SFProRegular;
-      font-size: rem(16px);
-      margin-bottom: 5px;
-    }
+    &__input {
+      width: 200px;
 
-    &__container {
-      width: 300px;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 10px;
-
-      &__input {
-        width: 200px;
+      @media only screen and (max-width: 345px) {
+        width: 100px;
       }
     }
+  }
 
-    &__title {
-      @include SFProBold;
-      font-size: rem(20px);
-      margin-bottom: 10px;
-    }
+  &__title {
+    @include SFProBold;
+    color: $textPrimary;
+    font-size: rem(20px);
+  }
 
-    &__description {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
+  &__description {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 }

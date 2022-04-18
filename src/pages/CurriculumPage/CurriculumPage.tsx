@@ -131,7 +131,6 @@ export const CurriculumPage = (): React.ReactElement => {
             <div>
               <div className="curriculum__title">Discipline</div>
               <div className="curriculum__description">
-                <p>Facultatea de Ştiinţe Exacte şi Inginereşti</p>
                 <div className="curriculum__container">
                   <p>An universitar</p>
                   <Select
@@ -199,21 +198,19 @@ export const CurriculumPage = (): React.ReactElement => {
                 </div>
               </div>
             </div>
-            <div>
-              {tableReadyGrades ? (
-                <TableGrades
-                  tableData={{
-                    headers: [
-                      { key: 'courses_name', label: 'Denumire' },
-                      { key: 'finalGrade', label: 'Notă' },
-                      { key: 'courses_ects', label: 'Nr. Credite' },
-                      { key: 'courses_category', label: 'Categorie' },
-                    ],
-                    values: tableDataGrades,
-                  }}
-                />
-              ) : null}
-            </div>
+            {tableReadyGrades ? (
+              <TableGrades
+                tableData={{
+                  headers: [
+                    { key: 'courses_name', label: 'Denumire' },
+                    { key: 'finalGrade', label: 'Notă' },
+                    { key: 'courses_ects', label: 'Nr. Credite' },
+                    { key: 'courses_category', label: 'Categorie' },
+                  ],
+                  values: tableDataGrades,
+                }}
+              />
+            ) : null}
           </div>
         ) : (
           ''

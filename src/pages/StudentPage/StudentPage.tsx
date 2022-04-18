@@ -152,7 +152,7 @@ export const StudentPage = (): React.ReactElement => {
   return (
     <Layout>
       <div className="student-data-page">
-        <div className="student-data-page__menu">
+        <div>
           <Menu menu={menu} pageValue={pageValue} onChange={setPageValue} />
         </div>
         {pageValue == 'student-data' ? (
@@ -160,17 +160,22 @@ export const StudentPage = (): React.ReactElement => {
             <div className="student-data__title">Date student</div>
             <div className="student-data__description">
               <Table caption="Personal" tableData={personal} />
-              <Table caption="Identificare" tableData={identification} />
+              <div className="student-data__description">
+                <Table caption="Identificare" tableData={identification} />
+              </div>
+            </div>
+            <div className="student-data__description">
               <Table caption="Cetățenie" tableData={citizenship} />
             </div>
           </div>
         ) : (
           ''
         )}
+
         {pageValue == 'student-address' ? (
           <div className="student-data">
             <div className="student-data__title">Adrese</div>
-            <div className="student-data__description">
+            <div>
               <Table caption="Naștere" tableData={birth} />
               <Table caption="Rezidență" tableData={residence} />
             </div>
@@ -178,10 +183,11 @@ export const StudentPage = (): React.ReactElement => {
         ) : (
           ''
         )}
+
         {pageValue == 'student-belonging' ? (
           <div className="student-data">
             <div className="student-data__title">Apartenență</div>
-            <div className="student-data__description">
+            <div>
               <Table caption="Religie" tableData={religion} />
               <Table caption="Apartenență" tableData={belonging} />
               <Table caption="Militar" tableData={military} />
@@ -190,30 +196,33 @@ export const StudentPage = (): React.ReactElement => {
         ) : (
           ''
         )}
+
         {pageValue == 'student-prevStudies' ? (
           <div className="student-data">
             <div className="student-data__title">Studii anterioare</div>
-            <div className="student-data__description">
+            <div>
               <Table caption="Liceu" tableData={highschool} />
             </div>
           </div>
         ) : (
           ''
         )}
+
         {pageValue == 'student-education' ? (
           <div className="student-data">
             <div className="student-data__title">Şcolaritate</div>
-            <div className="student-data__description">
+            <div>
               <Table caption="Informaţii şcolaritate" tableData={university} />
             </div>
           </div>
         ) : (
           ''
         )}
+
         {pageValue == 'student-contact' ? (
           <div className="student-data">
             <div className="student-data__title">Contact</div>
-            <div className="student-data__description">
+            <div>
               <Table caption="Date contact" tableData={contact} />
             </div>
           </div>

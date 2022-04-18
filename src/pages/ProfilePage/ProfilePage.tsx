@@ -91,20 +91,24 @@ export const ProfilePage = (): React.ReactElement => {
                 contul UMS Web. Veţi putea utiliza noua adresă de email în cazul
                 în care doriţi să vă resetaţi parola în aplicaţia UMS Web.
               </p>
-              <p>Adresa de email curentă: {userEmail}</p>
-              <p>
-                Introduceţi adresa nouă de email:{' '}
-                <Input onChange={setEmail} className="change-email__input" />
-              </p>
-              {emailError ? (
-                <span className="change-password__error">{emailError}</span>
-              ) : null}
-              <Button
-                text="Schimbă"
-                className="change-email__button"
-                disabled={isSending}
-                onClick={() => onChangeEmail()}
-              />
+              <div className="change-email__description__form">
+                <p>
+                  Adresa de email curentă: <span>{userEmail}</span>
+                </p>
+                <p>
+                  Introduceţi adresa nouă de email:{' '}
+                  <Input onChange={setEmail} className="change-email__input" />
+                </p>
+                {emailError ? (
+                  <span className="change-password__error">{emailError}</span>
+                ) : null}
+                <Button
+                  text="Schimbă"
+                  className="change-email__button"
+                  disabled={isSending}
+                  onClick={() => onChangeEmail()}
+                />
+              </div>
             </div>
           </div>
         ) : (

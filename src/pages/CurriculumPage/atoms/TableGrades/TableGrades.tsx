@@ -11,28 +11,28 @@ export const TableGrades: React.FC<Props> = ({
 }): React.ReactElement => {
   return (
     <>
-      <table className={`${className} table-grades`}>
-        <caption>{caption}</caption>
-        <thead>
-          <tr>
-            {tableData?.headers.map((data) => (
-              <td className="name" key={data.key}>
-                {data.label}
-              </td>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {tableData?.values.map((data) => (
-            <tr key={data.courses_code}>
-              <td className="value">{data.courses_name}</td>
-              <td className="value">{data.finalGrade}</td>
-              <td className="value">{data.courses_ects}</td>
-              <td className="value">{data.courses_category}</td>
+      <div className="table-grades">
+        <table className={`${className}`}>
+          <caption>{caption}</caption>
+          <thead>
+            <tr>
+              {tableData?.headers.map((data) => (
+                <td key={data.key}>{data.label}</td>
+              ))}
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {tableData?.values.map((data) => (
+              <tr key={data.courses_code}>
+                <td>{data.courses_name}</td>
+                <td>{data.finalGrade}</td>
+                <td>{data.courses_ects}</td>
+                <td>{data.courses_category}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
       {errorMessage && <p>{errorMessage}</p>}
     </>
   );

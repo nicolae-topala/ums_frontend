@@ -74,7 +74,6 @@ export const FinancialPage = (): React.ReactElement => {
           <div className="financial">
             <div className="financial__title">Documente plată</div>
             <div className="financial__description">
-              <div className="financial__container"></div>
               {tableReadyPayments ? (
                 <TablePayments
                   tableData={{
@@ -103,24 +102,22 @@ export const FinancialPage = (): React.ReactElement => {
           <div className="financial">
             <div className="financial__title">Reduceri</div>
             <div className="financial__description">
-              <div className="financial__container">
-                {tableReadyDiscounts ? (
-                  <TableDiscounts
-                    tableData={{
-                      headers: [
-                        { key: 'discounts_details', label: 'Detalii' },
-                        { key: 'discounts_discountAmmount', label: 'Suma' },
-                        { key: 'discounts_taxType', label: 'Tip taxă' },
-                        { key: 'discounts_date', label: 'Data' },
-                        { key: 'discounts_status', label: 'Status' },
-                      ],
-                      values: tableDataDiscounts,
-                    }}
-                  />
-                ) : (
-                  ''
-                )}
-              </div>
+              {tableReadyDiscounts ? (
+                <TableDiscounts
+                  tableData={{
+                    headers: [
+                      { key: 'discounts_details', label: 'Detalii' },
+                      { key: 'discounts_discountAmmount', label: 'Suma' },
+                      { key: 'discounts_taxType', label: 'Tip taxă' },
+                      { key: 'discounts_date', label: 'Data' },
+                      { key: 'discounts_status', label: 'Status' },
+                    ],
+                    values: tableDataDiscounts,
+                  }}
+                />
+              ) : (
+                ''
+              )}
             </div>
           </div>
         ) : (

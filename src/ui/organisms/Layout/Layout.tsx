@@ -14,7 +14,7 @@ export const Layout: React.FC<Layout> = (props): React.ReactElement => {
     <div className="layout">
       <div className="layout__top">
         <Navbar />
-        <div>{props.children}</div>
+        {props.children}
       </div>
 
       <Footer />
