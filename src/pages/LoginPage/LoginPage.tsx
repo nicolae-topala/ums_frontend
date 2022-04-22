@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { load, save } from 'react-cookies';
 import { useNavigate } from 'react-router-dom';
 
+import { axiosHeadersUpdater } from 'libs/http/axios';
 import { auth } from 'libs/http/auth/auth';
 import { UserContext } from 'context/UserContext';
 
@@ -33,11 +34,11 @@ export const LoginPage = (): React.ReactElement => {
     if (data?.accessToken && data?.refreshToken) {
       save('accessToken', data.accessToken, { path: '/' });
       save('refreshToken', data.refreshToken, { path: '/' });
+      axiosHeadersUpdater();
 
       setIsUserLogged(true);
       navigate('/');
     }
-    console.log(data);
   };
 
   const goToResetPage = (): void => {
