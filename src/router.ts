@@ -11,6 +11,7 @@ export const routes = {
     { path: '/info', element: InfoPage },
     { path: '/login', element: LoginPage },
     { path: '/reset-password', element: ResetPage },
+    { path: '/reset-password/:token', element: ResetPage },
     { path: '/profile', element: ProfilePage },
     { path: '/student', element: StudentPage },
     { path: '/curriculum', element: CurriculumPage },

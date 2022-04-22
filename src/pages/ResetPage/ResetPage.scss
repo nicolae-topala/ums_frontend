@@ -15,6 +15,15 @@
     flex-direction: column;
   }
 
+  &__password {
+    &__input {
+      margin-top: 10px;
+    }
+    &__button {
+      margin-top: 10px;
+    }
+  }
+
   &__items {
     margin: auto;
     width: 400px;
@@ -45,18 +54,28 @@
 
     &__input {
       width: 100%;
-      margin-bottom: 15px;
-
-      @media only screen and (max-width: 720px) {
-        margin-bottom: 15px;
-      }
     }
 
+    &__error {
+      @include SFProRegular;
+      color: $blackPrimary;
+      font-size: rem(16px);
+      text-align: center;
+    }
+
+    &__success {
+      @include SFProRegular;
+      color: $blackPrimary;
+      font-size: rem(16px);
+      text-align: center;
+      margin-top: 10px;
+    }
     &__row {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
       width: 100%;
+      margin-top: 10px;
 
       @media only screen and (max-width: 720px) {
         flex-direction: column;
@@ -65,16 +84,13 @@
 
     &__button {
       width: 45%;
-      margin-bottom: 5px;
 
       @media only screen and (max-width: 720px) {
-        margin-bottom: 15px;
         width: 100%;
       }
 
       &__forgot {
         width: 45%;
-        margin-bottom: 5px;
         background-color: white;
         color: $secondaryBlue;
         border: 1px solid;

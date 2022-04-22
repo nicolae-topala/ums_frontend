@@ -1,7 +1,13 @@
 import { UserContext } from 'context/UserContext';
 import React, { useEffect } from 'react';
 import { load } from 'react-cookies';
-import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
+import {
+  Routes,
+  Route,
+  Navigate,
+  useNavigate,
+  useLocation,
+} from 'react-router-dom';
 
 interface RouterObject {
   path: string;
@@ -23,8 +29,13 @@ export const RouterGenerator: React.FC<Props> = ({
   const navigate = useNavigate();
   const { setIsUserLogged } = React.useContext(UserContext);
 
+  const location = useLocation();
+
   useEffect(() => {
     if (load('accessToken')) setIsUserLogged(true);
+
+    if (location.pathname.includes('/reset-password'))
+      return; // don't go to login page if we want to reset password
     else {
       setIsUserLogged(false);
       navigate('/login');

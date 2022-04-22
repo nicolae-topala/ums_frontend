@@ -1,4 +1,5 @@
 import { axios } from 'libs/http/axios';
+import { Login } from '../auth/auth.types';
 import { getUser } from './profile.types';
 
 export const profile = {
@@ -9,4 +10,10 @@ export const profile = {
 
   changeEmail: (data = {}): Promise<{ data: string }> =>
     axios.patch('/api/users/changeEmail', data),
+
+  forgotPassword: (data = {}): Promise<{ data: string }> =>
+    axios.patch('/api/users/forgotPassword', data),
+
+  resetPassword: (data = {}): Promise<{ data: Login }> =>
+    axios.patch('/api/users/resetPassword', data),
 };
