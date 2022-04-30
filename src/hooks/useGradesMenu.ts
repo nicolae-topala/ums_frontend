@@ -10,6 +10,10 @@ export const useGradesMenu = (): MenuPage[] => {
       label: 'Note',
       value: 'grades',
     },
+    {
+      label: 'Fișa matricolă',
+      value: 'grade-sheet',
+    },
   ];
 
   return menu;

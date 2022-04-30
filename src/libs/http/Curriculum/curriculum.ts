@@ -7,4 +7,9 @@ export const curriculum = {
 
   getGrades: (): Promise<{ data: getGrades[] }> =>
     axios.get('/api/students/grades'),
+
+  getGradeSheet: (): Promise<{ data: string | Blob }> =>
+    axios.get('/api/students/grade-sheet', {
+      responseType: 'blob',
+    }),
 };

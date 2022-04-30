@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Select, { SingleValue } from 'react-select';
+import fileSaver from 'file-saver';
 
 // ui
 import { Layout } from 'ui/organisms/Layout/Layout';
@@ -18,6 +19,7 @@ import {
 } from 'libs/http/Curriculum/curriculum.types';
 
 import './CurriculumPage.scss';
+import { Button } from 'ui/atoms/Button/Button';
 
 export const CurriculumPage = (): React.ReactElement => {
   const menu = useGradesMenu();
@@ -44,22 +46,6 @@ export const CurriculumPage = (): React.ReactElement => {
   >([]);
   const [tableReadyCurriculum, setTableReadyCurriculum] = useState(false);
 
-  // Grades states
-  const [dataGrades, setDataGrades] = useState<getGrades[]>([]);
-  const [tableDataGrades, setTableDataGrades] = useState<getGrades[]>([]);
-  const [selectedYearGrades, setSelectedYearGrades] = useState<number>();
-  const [selectedSemesterGrades, setSelectedSemesterGrades] =
-    useState<number>();
-  const [tableReadyGrades, setTableReadyGrades] = useState(false);
-
-  const setState = (
-    event: SingleValue<{ value: number }>,
-    state: React.Dispatch<React.SetStateAction<number | undefined>>
-  ) => {
-    const value = event?.value;
-    if (value) state(value);
-  };
-
   useEffect(() => {
     if (selectedYearCurriculum && selectedSemesterCurriculum) {
       const collectData: getCurriculum[] = [];
@@ -81,6 +67,22 @@ export const CurriculumPage = (): React.ReactElement => {
     }
   }, [selectedYearCurriculum, selectedSemesterCurriculum]);
 
+  // Grades states
+  const [dataGrades, setDataGrades] = useState<getGrades[]>([]);
+  const [tableDataGrades, setTableDataGrades] = useState<getGrades[]>([]);
+  const [selectedYearGrades, setSelectedYearGrades] = useState<number>();
+  const [selectedSemesterGrades, setSelectedSemesterGrades] =
+    useState<number>();
+  const [tableReadyGrades, setTableReadyGrades] = useState(false);
+
+  const setState = (
+    event: SingleValue<{ value: number }>,
+    state: React.Dispatch<React.SetStateAction<number | undefined>>
+  ) => {
+    const value = event?.value;
+    if (value) state(value);
+  };
+
   useEffect(() => {
     if (selectedYearGrades && selectedSemesterGrades) {
       const collectData: getGrades[] = [];
@@ -101,6 +103,18 @@ export const CurriculumPage = (): React.ReactElement => {
     }
   }, [selectedYearGrades, selectedSemesterGrades]);
 
+  // Grade Sheet
+  const donwloadPDF = async () => {
+    try {
+      const { data } = await curriculum.getGradeSheet();
+
+      fileSaver.saveAs(data, 'Fisa_Matricola.pdf');
+    } catch (error) {
+      alert('Erroare la descarcare PDF!');
+    }
+  };
+
+  // On page Load
   useEffect(() => {
     const fetchDataCurriculum = async () => {
       const { data } = await curriculum.getCurriculum();
@@ -211,6 +225,23 @@ export const CurriculumPage = (): React.ReactElement => {
                 }}
               />
             ) : null}
+          </div>
+        ) : (
+          ''
+        )}
+        {pageValue == 'grade-sheet' ? (
+          <div className="curriculum">
+            <div>
+              <div className="curriculum__title">Fișa matricolă</div>
+              <div className="curriculum__description">
+                <p>
+                  Pentru a descarcă fișa matricolă apasați butonul de mai jos.
+                </p>
+                <div className="curriculum__container">
+                  <Button text="Descarcă" onClick={donwloadPDF}></Button>
+                </div>
+              </div>
+            </div>
           </div>
         ) : (
           ''
