@@ -29,6 +29,7 @@
     font-size: rem(24px);
     @include SFProBold;
     color: $blackPrimary;
+    margin-left: 10px;
     transition: color 0.3s ease-in-out;
     z-index: 4;
 

@@ -26,7 +26,7 @@ export const Navbar = (): React.ReactElement => {
   return (
     <>
       <div className="navbar">
-        <div className="navbar__title">UMS</div>
+        <div className="navbar__title">USI</div>
         <div className="navbar__log-out" onClick={() => logOut()}>
           <Icon type="logOut" />
           <span>Ieșire</span>
