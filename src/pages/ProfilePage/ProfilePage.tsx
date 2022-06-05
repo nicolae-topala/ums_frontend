@@ -88,8 +88,8 @@ export const ProfilePage = (): React.ReactElement => {
             <div className="change-email__description">
               <p>
                 Pe aceasta pagină puteţi să vă schimbaţi adresa de email din
-                contul UMS Web. Veţi putea utiliza noua adresă de email în cazul
-                în care doriţi să vă resetaţi parola în aplicaţia UMS Web.
+                contul USI Web. Veţi putea utiliza noua adresă de email în cazul
+                în care doriţi să vă resetaţi parola în aplicaţia USI Web.
               </p>
               <div className="change-email__description__form">
                 <p>

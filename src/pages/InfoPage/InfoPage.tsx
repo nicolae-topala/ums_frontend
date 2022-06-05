@@ -40,7 +40,7 @@ export const InfoPage = (): React.ReactElement => {
             <ContactInfo
               title="Facultatea de Istorie și Filologie"
               photo={photoIsto}
-              url="https://uab.ro/facultate/3-facultatea-de-istorie-si-filologie/"
+              url="https://uab.ro/facultate/3-facultatea-de-istorie-litere-si-stiinte-ale-educatiei/"
               address={['Strada Unirii nr. 15-17']}
               phone={['+40258811412']}
               email={['secretariat_istorie@uab.ro']}
@@ -48,7 +48,7 @@ export const InfoPage = (): React.ReactElement => {
             <ContactInfo
               title="Facultatea de Științe Exacte și Inginerești"
               photo={photoSei}
-              url="https://uab.ro/facultate/1-facultatea-de-stiinte-exacte-si-ingineresti/"
+              url="https://uab.ro/facultate/1-facultatea-de-informatica-si-inginerie/"
               address={['Strada Unirii nr. 15-17']}
               phone={['+40258811512']}
               email={['sec-fsei@uab.ro', 'fsei@uab.ro']}
@@ -56,7 +56,7 @@ export const InfoPage = (): React.ReactElement => {
             <ContactInfo
               title="Facultatea de Teologie Ortodoxă"
               photo={photoTeo}
-              url=""
+              url="https://uab.ro/facultate/5-facultatea-de-teologie-ortodoxa/"
               address={['Bulevardul 1 Decembrie 1918, nr. 13']}
               phone={['+40258835901']}
               email={['teologialba@yahoo.com']}
@@ -64,7 +64,7 @@ export const InfoPage = (): React.ReactElement => {
             <ContactInfo
               title="Studii Universitare de Doctorat"
               photo={photoDoc}
-              url=""
+              url="https://uab.ro/facultate/6-scoala-doctorala/"
               address={['Strada Gabriel Bethlen, nr. 5']}
               phone={['+40258806272']}
               email={['doctorat@uab.ro']}
